@@ -39,7 +39,7 @@ export async function GET(request: Request) {
                             <span tw="text-9xl font-black text-white">{weight} lbs</span>
                         </div>
                         <p tw="text-3xl text-neutral-400 mt-4">
-                            Calculate your pup's future weight today.
+                            Calculate your pup&apos;s future weight today.
                         </p>
                     </div>
                 </div>
@@ -49,8 +49,8 @@ export async function GET(request: Request) {
                 height: 630,
             },
         );
-    } catch (e: any) {
-        console.log(`${e.message}`);
+    } catch (e: unknown) {
+        console.log(`${(e as Error).message}`);
         return new Response(`Failed to generate the image`, {
             status: 500,
         });
