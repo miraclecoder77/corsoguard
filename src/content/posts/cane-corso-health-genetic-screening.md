@@ -1,3 +1,13 @@
+---
+title: Essential Health & Genetic Screening for Cane Corsos
+description: Why DNA testing and hip/elbow scoring are non-negotiable for the breed.
+date: 2024-02-20
+author: CorsoGuard Health
+image: /blog/health.png
+category: Health
+readTime: 5 min
+---
+
 # Cane Corso Health in 2026: The New Genetic Screening Standards Every Owner Needs to Know
 
 If you've owned a Cane Corso for more than a few years, you already know the anxiety that comes with it. Not the "will he behave at the dog park" kind—the deeper kind. The 2 a.m. Google spiral about hip dysplasia, the quiet dread every time he gets up slowly from the floor. These are big dogs with big hearts and, unfortunately, a few well-documented health vulnerabilities that come with the territory.

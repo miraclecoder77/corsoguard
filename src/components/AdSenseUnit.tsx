@@ -38,6 +38,10 @@ export default function AdSenseUnit({ slotId, format = 'auto', className, type =
         multiplex: "bg-black/60 min-h-[300px]"
     };
 
+    // HIDDEN AS REQUESTED - Set to true to show ads again
+    const showAds = false;
+    if (!showAds) return null;
+
     if (isDev) {
         return (
             <div className={`${baseStyles} ${typeStyles[type]} ${className || ''}`}>

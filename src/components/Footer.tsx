@@ -21,7 +21,7 @@ export default function Footer() {
                         Disclosure
                     </Link>
                     <Link
-                        href="/blogs"
+                        href="/blog"
                         className="text-muted-foreground hover:text-primary transition-colors"
                     >
                         Blogs

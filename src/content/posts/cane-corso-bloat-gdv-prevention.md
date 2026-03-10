@@ -1,3 +1,13 @@
+---
+title: Preventing Bloat (GDV) in Cane Corsos
+description: Critical health guide on identifying and preventing the #1 killer of large breeds.
+date: 2024-03-01
+author: CorsoGuard Health
+image: /blog/bloat.png
+category: Health
+readTime: 10 min
+---
+
 # The Deep-Chest Danger: Preventing Bloat and GDV in Large Breeds
 
 Some topics in dog ownership are uncomfortable to think about. This is one of them. Because bloat—and its more severe form, gastric dilatation-volvulus, or GDV—isn't a distant risk you read about once and forget. For owners of deep-chested large breeds like the Cane Corso, Great Dane, Weimaraner, or any of the Mastiff family, it's a genuine, recurring threat that can take a healthy dog from fine to critical in under an hour.

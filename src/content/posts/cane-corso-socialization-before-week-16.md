@@ -1,4 +1,15 @@
+---
+title: The Critical Socialization Window (Birth to Week 16)
+description: Why the first 4 months define your Corso's temperament for life.
+date: 2024-02-15
+author: CorsoGuard Training
+image: /breed-guide-card.png
+category: Training
+readTime: 6 min
+---
+
 # Guardian or Liability? The Science of Socializing Your Corso Before Week 16
+
 
 There's a moment every new Cane Corso owner eventually faces. You're at the vet, or maybe just on a walk, and someone sees your dog and takes a visible step back. Sometimes they say it out loud: "Is he friendly?" Sometimes they just give you the look. And somewhere in the back of your mind, a question you've probably already been asking yourself gets a little louder—*am I doing this right?*
 

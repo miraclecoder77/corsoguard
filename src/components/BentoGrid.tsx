@@ -1,6 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export const BentoGrid = ({
     className,
@@ -28,6 +29,7 @@ export const BentoGridItem = ({
     header,
     icon,
     onClick,
+    href,
 }: {
     className?: string;
     title?: string | React.ReactNode;
@@ -35,14 +37,16 @@ export const BentoGridItem = ({
     header?: React.ReactNode;
     icon?: React.ReactNode;
     onClick?: () => void;
+    href?: string;
 }) => {
-    return (
+    const itemContent = (
         <motion.div
             whileHover={{ scale: 0.98 }}
             whileTap={{ scale: 0.95 }}
             onClick={onClick}
             className={cn(
-                "row-span-1 rounded-2xl group/bento hover:shadow-xl transition duration-200 shadow-none p-6 bg-white/[0.03] border border-white/[0.1] justify-between flex flex-col space-y-4 backdrop-blur-xl cursor-pointer relative overflow-hidden",
+                "row-span-1 rounded-2xl group/bento hover:shadow-xl transition duration-200 shadow-none p-6 bg-white/[0.03] border border-white/[0.1] justify-between flex flex-col space-y-4 backdrop-blur-xl relative overflow-hidden h-full",
+                (onClick || href) && "cursor-pointer",
                 className
             )}
         >
@@ -60,4 +64,10 @@ export const BentoGridItem = ({
             </div>
         </motion.div>
     );
+
+    if (href) {
+        return <Link href={href} className="block h-full">{itemContent}</Link>;
+    }
+
+    return itemContent;
 };
