@@ -49,10 +49,6 @@ export const metadata: Metadata = {
     images: ["/baby-corso.png"],
     creator: "@corsoguard",
   },
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-  },
   manifest: "/site.webmanifest",
 };
 
