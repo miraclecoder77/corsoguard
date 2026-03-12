@@ -2,9 +2,37 @@ import fs from 'fs';
 import path from 'path';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Metadata } from 'next';
 import { ArrowLeft, Clock, User, Calendar } from 'lucide-react';
 import AdSenseUnit from '@/components/AdSenseUnit';
 import { parseMarkdown } from '@/lib/markdown';
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+    const { slug } = await params;
+    const fullPath = path.join(process.cwd(), `src/content/posts/${slug}.md`);
+    
+    try {
+        const fileContents = fs.readFileSync(fullPath, 'utf8');
+        const { metadata } = parseMarkdown(fileContents);
+        
+        return {
+            title: metadata.title,
+            description: metadata.description || `Read our comprehensive guide on ${metadata.title || slug.replace(/-/g, ' ')}`,
+            openGraph: {
+                title: metadata.title,
+                description: metadata.description,
+                images: [metadata.image || '/breed-guide-card.png'],
+                type: 'article',
+                publishedTime: metadata.date,
+                authors: [metadata.author || 'CorsoGuard Team'],
+            },
+        };
+    } catch (e) {
+        return {
+            title: "Guide Not Found",
+        };
+    }
+}
 
 export async function generateStaticParams() {
     const postsDirectory = path.join(process.cwd(), 'src/content/posts');

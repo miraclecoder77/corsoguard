@@ -1,4 +1,10 @@
 import { Shield, Award, Activity } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "About Us | Our E-E-A-T Commitment",
+    description: "Learn about the expertise and methodologies behind CorsoGuard's tactical Cane Corso tools.",
+};
 
 export default function AboutPage() {
     return (

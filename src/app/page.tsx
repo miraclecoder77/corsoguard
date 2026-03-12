@@ -1,8 +1,12 @@
-"use client";
 import { BentoGrid, BentoGridItem } from "@/components/BentoGrid";
 import { Shield, Calculator, CheckSquare, BookOpen, Scaling, Clock, DollarSign } from "lucide-react";
-import { motion } from "framer-motion";
 import AdSenseUnit from "@/components/AdSenseUnit";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Growth Predictor & Tactical Dashboard",
+  description: "Access the most accurate Cane Corso growth predictor, socialization protocols, and tactical gear recommendations.",
+};
 
 export default function Home() {
 
@@ -42,39 +46,7 @@ export default function Home() {
           className="md:col-span-1"
           href="/age-converter"
           header={
-            <div className="w-full h-full bg-[#050505] relative overflow-hidden flex items-center justify-center group">
-              {/* Tactical Grid Overlay */}
-              <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:14px_14px]"></div>
-              
-              {/* Circular Radar/Time UI */}
-              <div className="relative w-32 h-32 flex items-center justify-center">
-                <motion.div 
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                  className="absolute inset-0 border-2 border-dashed border-primary/20 rounded-full"
-                ></motion.div>
-                <motion.div 
-                  animate={{ rotate: -360 }}
-                  transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                  className="absolute inset-2 border border-primary/10 rounded-full"
-                ></motion.div>
-                <Clock className="w-12 h-12 text-primary group-hover:scale-110 transition-transform duration-500 relative z-10" />
-                
-                {/* Pulsing Tactical Ring */}
-                <motion.div
-                  animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                  className="absolute inset-0 bg-primary/5 rounded-full"
-                ></motion.div>
-              </div>
-              
-              {/* Scanning Line */}
-              <motion.div
-                animate={{ top: ["-10%", "110%"] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                className="absolute left-0 right-0 h-[1px] bg-primary/30 shadow-[0_0_15px_rgba(255,95,31,0.5)] z-20"
-              ></motion.div>
-            </div>
+            <div className="w-full h-full bg-[url('/age-converter-card.jpg')] bg-cover bg-center opacity-60 hover:opacity-100 transition-opacity"></div>
           }
         />
         <BentoGridItem
@@ -103,20 +75,7 @@ export default function Home() {
           className="md:col-span-1"
           href="/lifetime-cost"
           header={
-            <div className="w-full h-full bg-[#0a0a0a] relative overflow-hidden flex items-center justify-center group">
-              <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#ff5f1f_1px,transparent_1px)] bg-[size:20px_20px]"></div>
-              <div className="relative">
-                <motion.div
-                  animate={{ 
-                    scale: [1, 1.1, 1],
-                    opacity: [0.3, 0.6, 0.3]
-                  }}
-                  transition={{ duration: 4, repeat: Infinity }}
-                  className="absolute inset-0 bg-primary/20 blur-2xl rounded-full"
-                ></motion.div>
-                <DollarSign className="w-16 h-16 text-primary relative z-10 group-hover:scale-110 transition-transform duration-500" />
-              </div>
-            </div>
+            <div className="w-full h-full bg-[url('/cost-calculator-card.jpg')] bg-cover bg-center opacity-60 hover:opacity-100 transition-opacity"></div>
           }
         />
       </BentoGrid>

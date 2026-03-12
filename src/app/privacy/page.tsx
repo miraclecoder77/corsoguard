@@ -1,3 +1,9 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Privacy Policy",
+    description: "CorsoGuard's commitment to your privacy and data security.",
+};
 export default function PrivacyPage() {
     return (
         <div className="min-h-screen p-8 pt-24 max-w-3xl mx-auto prose prose-invert">

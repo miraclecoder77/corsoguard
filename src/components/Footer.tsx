@@ -24,7 +24,7 @@ export default function Footer() {
                         href="/blog"
                         className="text-muted-foreground hover:text-primary transition-colors"
                     >
-                        Blogs
+                        Blog
                     </Link>
                 </nav>
             </div>

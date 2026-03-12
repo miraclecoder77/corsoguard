@@ -1,3 +1,9 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Affiliate & FTC Disclosure",
+    description: "Transparency regarding our affiliate relationships and how we support CorsoGuard.",
+};
 export default function DisclosurePage() {
     return (
         <div className="min-h-screen p-8 pt-24 max-w-3xl mx-auto prose prose-invert">

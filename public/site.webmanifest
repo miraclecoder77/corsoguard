@@ -1,0 +1,21 @@
+{
+  "name": "CorsoGuard",
+  "short_name": "CorsoGuard",
+  "description": "Tactical Cane Corso Toolkit",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#ff5f1f",
+  "icons": [
+    {
+      "src": "/baby-corso.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/baby-corso.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

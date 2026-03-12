@@ -17,8 +17,43 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CorsoGuard | Tactical Cane Corso Toolkit",
-  description: "Growth predictor, socialization protocol, and SEO optimized guides for Cane Corso owners.",
+  metadataBase: new URL("https://corsoguard.com"),
+  title: {
+    default: "CorsoGuard | Tactical Cane Corso Toolkit",
+    template: "%s | CorsoGuard"
+  },
+  description: "The ultimate tactical toolkit for Cane Corso owners. Predict growth, manage socialization protocol, and secure high-performance gear.",
+  keywords: ["Cane Corso", "dog growth predictor", "socialization checklist", "tactical dog gear", "large breed nutrition"],
+  authors: [{ name: "CorsoGuard Team" }],
+  creator: "CorsoGuard",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://corsoguard.com",
+    siteName: "CorsoGuard",
+    title: "CorsoGuard | Tactical Cane Corso Toolkit",
+    description: "Predict growth, manage socialization protocol, and secure high-performance gear for your Cane Corso.",
+    images: [
+      {
+        url: "/baby-corso.png",
+        width: 1200,
+        height: 630,
+        alt: "CorsoGuard - Tactical Cane Corso Toolkit",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CorsoGuard | Tactical Cane Corso Toolkit",
+    description: "The ultimate tactical toolkit for Cane Corso owners.",
+    images: ["/baby-corso.png"],
+    creator: "@corsoguard",
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({

@@ -5,6 +5,12 @@ import { ArrowLeft, BookOpen, Clock, Tag } from 'lucide-react';
 import AdSenseUnit from '@/components/AdSenseUnit';
 import { BentoGrid, BentoGridItem } from '@/components/BentoGrid';
 import { parseMarkdown, BlogPostMetadata } from '@/lib/markdown';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: "Expert Cane Corso Breed Guides",
+    description: "In-depth guides on Cane Corso training, health, behavior, and socialization from experienced handlers.",
+};
 
 export default function BlogIndex() {
     const postsDirectory = path.join(process.cwd(), 'src/content/posts');
