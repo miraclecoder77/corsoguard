@@ -19,7 +19,7 @@ export default function HarnessCalculator() {
     };
 
     return (
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="max-w-xl mx-auto">
             <div className="bg-white/[0.03] border border-white/[0.1] rounded-2xl p-8 backdrop-blur-xl shadow-2xl relative overflow-hidden h-fit">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl -mr-10 -mt-10"></div>
 
@@ -64,7 +64,8 @@ export default function HarnessCalculator() {
                 )}
             </div>
 
-            {/* Gear Preview Side */}
+            {/* Gear Preview Side - Hidden until unhide requested */}
+            {/* 
             <div className="space-y-6">
                 <h2 className="text-2xl font-bold text-white mb-4">Recommended Tactical Gear</h2>
 
@@ -92,6 +93,7 @@ export default function HarnessCalculator() {
                     </div>
                 </div>
             </div>
+            */}
         </div>
     );
 }
