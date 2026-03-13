@@ -5,25 +5,25 @@ import path from 'path'
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://corsoguard.com'
 
-  // Static routes
+  // Static routes with priorities
   const staticRoutes = [
-    '',
-    '/about',
-    '/age-converter',
-    '/blog',
-    '/checklist',
-    '/disclosure',
-    '/growth',
-    '/harness',
-    '/lifetime-cost',
-    '/privacy',
+    { url: '', priority: 1.0, changeFrequency: 'daily' as const },
+    { url: '/growth', priority: 0.9, changeFrequency: 'weekly' as const },
+    { url: '/checklist', priority: 0.9, changeFrequency: 'weekly' as const },
+    { url: '/age-converter', priority: 0.8, changeFrequency: 'monthly' as const },
+    { url: '/harness', priority: 0.8, changeFrequency: 'monthly' as const },
+    { url: '/lifetime-cost', priority: 0.8, changeFrequency: 'monthly' as const },
+    { url: '/blog', priority: 0.9, changeFrequency: 'daily' as const },
+    { url: '/about', priority: 0.5, changeFrequency: 'monthly' as const },
+    { url: '/disclosure', priority: 0.3, changeFrequency: 'monthly' as const },
+    { url: '/privacy', priority: 0.3, changeFrequency: 'monthly' as const },
   ]
 
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
-    url: `${baseUrl}${route}`,
+    url: `${baseUrl}${route.url}`,
     lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: route === '' ? 1.0 : 0.8,
+    changeFrequency: route.changeFrequency,
+    priority: route.priority,
   }))
 
   // Dynamic blog routes
@@ -43,8 +43,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           return {
             url: `${baseUrl}/blog/${slug}`,
             lastModified: stats.mtime,
-            changeFrequency: 'monthly' as const,
-            priority: 0.6,
+            changeFrequency: 'weekly' as const,
+            priority: 0.7,
           }
         })
     } catch (error) {

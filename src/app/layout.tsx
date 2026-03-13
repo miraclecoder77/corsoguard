@@ -22,10 +22,24 @@ export const metadata: Metadata = {
     default: "CorsoGuard | Tactical Cane Corso Toolkit",
     template: "%s | CorsoGuard"
   },
-  description: "The ultimate tactical toolkit for Cane Corso owners. Predict growth, manage socialization protocol, and secure high-performance gear.",
-  keywords: ["Cane Corso", "dog growth predictor", "socialization checklist", "tactical dog gear", "large breed nutrition"],
+  description: "The ultimate tactical toolkit for Cane Corso owners. Predict growth, manage socialization protocols, and secure high-performance tactical gear.",
+  keywords: ["Cane Corso", "dog growth predictor", "socialization checklist", "tactical dog gear", "large breed nutrition", "Cane Corso training"],
   authors: [{ name: "CorsoGuard Team" }],
   creator: "CorsoGuard",
+  alternates: {
+    canonical: "https://corsoguard.com",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -67,6 +81,35 @@ export default function RootLayout({
           strategy="afterInteractive"
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1234567890123456`}
           crossOrigin="anonymous"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "CorsoGuard",
+                "url": "https://corsoguard.com",
+                "logo": "https://corsoguard.com/logo.png",
+                "sameAs": [
+                  "https://twitter.com/corsoguard",
+                  "https://instagram.com/corsoguard"
+                ]
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "CorsoGuard",
+                "url": "https://corsoguard.com",
+                "potentialAction": {
+                  "@type": "SearchAction",
+                  "target": "https://corsoguard.com/blog?q={search_term_string}",
+                  "query-input": "required name=search_term_string"
+                }
+              }
+            ])
+          }}
         />
       </head>
       <body
