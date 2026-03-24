@@ -16,7 +16,7 @@ I'm not saying this to scare you. I'm saying it because the owners who understan
 
 So let's get into it properly.
 
-
+[[RiskCalculator]]
 
 ## What Bloat Actually Is (And Why GDV Is Different)
 
@@ -104,6 +104,8 @@ Prevention isn't a single decision—it's a set of daily habits that compound ov
 Feed twice a day. Use a slow feeder. Enforce the two-hour rest window after every meal. Know the symptoms cold—not vaguely, but specifically. Have your emergency vet's number saved in your phone *now*, not when you need it. Know the route.
 
 Some owners use a Bloat Safety Timer—a simple tool that tracks the two-hour window after meals and sends a reminder when it's safe to exercise. It sounds almost too simple to bother with, but routine is where prevention lives. When you're busy, distracted, or it's been a long day, a reminder that says "wait thirty more minutes" is exactly the kind of guardrail that matters.
+
+[[ToolCard:cost]]
 
 ---
 

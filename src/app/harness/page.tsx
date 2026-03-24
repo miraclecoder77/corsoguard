@@ -3,13 +3,17 @@ import Link from "next/link";
 import Image from "next/image";
 import Script from "next/script";
 import type { Metadata } from "next";
+import ToolSchema from "@/components/ToolSchema";
 
 import HarnessCalculator from "@/components/HarnessCalculator";
 
 export const metadata: Metadata = {
-    title: "Cane Corso Harness Size Calculator | Tactical Gear Guide",
-    description: "Use our tactical harness sizing calculator for your Cane Corso. Get precise measurements for heavy-duty K9 gear based on weight class and adult growth predictions.",
+    title: "Cane Corso Harness Size Calculator | Tactical Gear Sizing Guide",
+    description: "Use our tactical harness sizing calculator for your Cane Corso. Get precise measurements for heavy-duty K9 gear based on weight class and adult growth data.",
     keywords: ["Cane Corso harness size chart", "tactical dog harness calculator", "heavy duty K9 gear", "dog harness weight guide"],
+    alternates: {
+        canonical: "https://corsoguard.com/harness",
+    },
     openGraph: {
         title: "Cane Corso Tactical Harness Sizing Guide",
         description: "Exact size recommendations for Cane Corso tactical harnesses. Bulletproof your gear selection.",
@@ -41,6 +45,14 @@ const jsonLd = {
 export default function HarnessSizing() {
     return (
         <div className="min-h-screen p-8 pt-24 max-w-4xl mx-auto">
+            <ToolSchema 
+                name="Cane Corso Harness Sizing Calculator"
+                description="Precision sizing tool for tactical K9 gear, mapped to Cane Corso weight classes and growth stages."
+                url="/harness"
+                category="ShoppingApplication"
+                features={["Weight-to-size mapping", "Growth-informed sizing", "Tactical gear specifications", "Measurement guide"]}
+            />
+            
             <Link href="/" className="inline-flex items-center text-primary mb-8 hover:underline">
                 <ArrowLeft className="w-4 h-4 mr-2" /> Back to Dashboard
             </Link>

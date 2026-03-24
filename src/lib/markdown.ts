@@ -54,7 +54,8 @@ export function parseMarkdown(content: string) {
     // Paragraphs
     const paragraphs = html.split(/\n\n+/);
     html = paragraphs.map(p => {
-        if (p.trim().startsWith('<h') || p.trim().startsWith('<div') || p.trim().startsWith('<ul')) {
+        const trimmed = p.trim();
+        if (trimmed.startsWith('<h') || trimmed.startsWith('<div') || trimmed.startsWith('<ul') || trimmed.startsWith('[[')) {
             return p;
         }
         return `<p class="text-neutral-300 mb-6 leading-relaxed">${p.replace(/\n/g, ' ')}</p>`;

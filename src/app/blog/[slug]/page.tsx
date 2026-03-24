@@ -8,6 +8,8 @@ import AdSenseUnit from '@/components/AdSenseUnit';
 import { parseMarkdown } from '@/lib/markdown';
 import StructuredData from '@/components/StructuredData';
 import SchemaBridge from '@/components/SchemaBridge';
+import ToolCard from '@/components/ToolCard';
+import RiskCalculator from '@/components/RiskCalculator';
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
     const { slug } = await params;
@@ -148,7 +150,20 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 <AdSenseUnit slotId="blog-post-top" type="banner" className="mb-12" />
 
                 <article className="prose prose-invert prose-primary max-w-none">
-                    <div dangerouslySetInnerHTML={{ __html: html }} />
+                    {html.split(/(\[\[.*?\]\])/).map((part, i) => {
+                        if (part.startsWith('[[') && part.endsWith(']]')) {
+                            const componentData = part.slice(2, -2);
+                            if (componentData === 'RiskCalculator') {
+                                return <RiskCalculator key={i} />;
+                            }
+                            if (componentData.startsWith('ToolCard:')) {
+                                const toolId = componentData.split(':')[1] as any;
+                                return <ToolCard key={i} toolId={toolId} />;
+                            }
+                            return null;
+                        }
+                        return <div key={i} dangerouslySetInnerHTML={{ __html: part }} />;
+                    })}
                 </article>
 
                 {/* Related Articles Selection */}

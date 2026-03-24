@@ -5,6 +5,17 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Scaling, ArrowLeft, Share2, Twitter, Facebook, MessageCircle, MessageSquare, Info, Calculator, Calendar } from "lucide-react";
 import Link from "next/link";
 import AdSenseUnit from "@/components/AdSenseUnit";
+import ToolSchema from "@/components/ToolSchema";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Cane Corso Human Age Calculator | Giant Breed Specific Formula",
+    description: "Calculate your Cane Corso's human age using our scientifically accurate giant-breed formula. Compare development milestones with human life stages.",
+    keywords: ["dog age calculator", "cane corso human age", "giant breed age formula", "large dog aging chart"],
+    alternates: {
+        canonical: "https://corsoguard.com/age-converter",
+    },
+};
 
 export default function AgeConverter() {
     const [years, setYears] = useState(2);
@@ -23,25 +34,15 @@ export default function AgeConverter() {
         "Senior": "text-purple-400"
     };
 
-    const schemaData = {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Cane Corso Human Age Converter",
-        "applicationCategory": "HealthApplication",
-        "operatingSystem": "Web",
-        "description": "Calculate your Cane Corso's age in human years using a scientifically accurate formula for large/giant dog breeds.",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        }
-    };
 
     return (
         <div className="min-h-screen p-8 pt-24 max-w-4xl mx-auto">
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+            <ToolSchema 
+                name="Cane Corso Human Age Calculator"
+                description="Expert-grade giant breed aging protocol to convert dog years to human years with precision."
+                url="/age-converter"
+                category="HealthApplication"
+                features={["Giant-breed specific scaling", "Real-time slider interface", "Life stage insights", "Scientific aging protocol"]}
             />
             
             <Link href="/" className="inline-flex items-center text-primary mb-8 hover:underline">

@@ -19,6 +19,17 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import AdSenseUnit from "@/components/AdSenseUnit";
+import ToolSchema from "@/components/ToolSchema";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Cane Corso Lifetime Cost Calculator | Ownership Budget Guide",
+    description: "Calculate the total lifetime cost of owning a Cane Corso. Includes initial purchase, premium nutrition, veterinary care, and insurance budgeting.",
+    keywords: ["cane corso cost", "dog ownership budget", "giant breed expenses", "pet cost calculator"],
+    alternates: {
+        canonical: "https://corsoguard.com/lifetime-cost",
+    },
+};
 
 export default function LifetimeCostCalculator() {
     const [inputs, setInputs] = useState<CostInputs>({
@@ -43,19 +54,6 @@ export default function LifetimeCostCalculator() {
         { symbol: "€", label: "EUR", name: "Euro" }
     ];
 
-    const schemaData = {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Cane Corso Lifetime Cost Calculator",
-        "applicationCategory": "FinanceApplication",
-        "operatingSystem": "Web",
-        "description": "Estimate the total lifetime cost of owning a Cane Corso, including initial purchase, food, vet care, and insurance.",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        }
-    };
 
     const formatCurrency = (val: number) => {
         return `${currency}${Math.round(val).toLocaleString()}`;
@@ -63,9 +61,12 @@ export default function LifetimeCostCalculator() {
 
     return (
         <div className="min-h-screen p-8 pt-24 max-w-6xl mx-auto">
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+            <ToolSchema 
+                name="Cane Corso Lifetime Cost Calculator"
+                description="Comprehensive financial planning tool for Cane Corso owners to estimate investment from puppyhood to senior years."
+                url="/lifetime-cost"
+                category="FinanceApplication"
+                features={["Regional cost adjustments", "Insurance impact modeling", "Premium nutrition budgeting", "First-year peak analysis"]}
             />
             
             <div className="flex justify-between items-center mb-8">

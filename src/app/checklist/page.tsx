@@ -3,10 +3,12 @@ import { Shield, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import ChecklistClient from "./ChecklistClient";
 import FAQSchema from "@/components/FAQSchema";
+import ToolSchema from "@/components/ToolSchema";
 
 export const metadata: Metadata = {
-    title: "100-Item Cane Corso Socialization Checklist | CorsoGuard",
-    description: "The ultimate tactical socialization protocol for Cane Corso puppies. 100 stimulus items to ensure a stable, confident, and balanced adult dog.",
+    title: "100-Item Cane Corso Socialization Checklist | Tactical Protocol",
+    description: "The ultimate tactical socialization protocol for Cane Corso puppies. 100 stimulus items to ensure a stable, confident, and bulletproof adult dog.",
+    keywords: ["cane corso socialization checklist", "puppy socialization protocol", "giant breed training", "dog behavior checklist"],
     alternates: {
         canonical: "https://corsoguard.com/checklist",
     },
@@ -31,6 +33,13 @@ export default function ChecklistPage() {
     return (
         <div className="min-h-screen p-8 pt-24 max-w-5xl mx-auto">
             <FAQSchema items={checklistFAQs} />
+            <ToolSchema 
+                name="100-Item Corso Socialization Protocol"
+                description="A comprehensive tactical checklist for high-drive giant breeds to prevent fear and aggression through structured exposure."
+                url="/checklist"
+                category="EducationalApplication"
+                features={["100 unique stimulus items", "Real-time progress tracking", "Category-based exposure", "Expert training insights"]}
+            />
             
             <Link href="/" className="inline-flex items-center text-primary mb-8 hover:underline">
                 <ArrowLeft className="w-4 h-4 mr-2" /> Back to Dashboard

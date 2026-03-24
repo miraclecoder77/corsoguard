@@ -3,10 +3,12 @@ import { Calculator, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import GrowthPredictorClient from "./GrowthPredictorClient";
 import FAQSchema from "@/components/FAQSchema";
+import ToolSchema from "@/components/ToolSchema";
 
 export const metadata: Metadata = {
-    title: "Cane Corso Growth Predictor & Adult Weight Calculator | CorsoGuard",
-    description: "Predict your Cane Corso's adult weight with our specialized giant-breed growth curve calculator. Includes tactical nutrition and gear recommendations.",
+    title: "Cane Corso Growth Predictor & Weight Calculator | Adult Size Prediction",
+    description: "Predict your Cane Corso's adult weight with our specialized giant-breed growth curve calculator. Includes tactical nutrition and K9 gear recommendations.",
+    keywords: ["cane corso weight calculator", "dog growth predictor", "giant breed weight chart", "large dog growth curve"],
     alternates: {
         canonical: "https://corsoguard.com/growth",
     },
@@ -31,6 +33,13 @@ export default function GrowthPage() {
     return (
         <div className="min-h-screen p-8 pt-24 max-w-4xl mx-auto">
             <FAQSchema items={growthFAQs} />
+            <ToolSchema 
+                name="Cane Corso Growth & Nutrition Predictor"
+                description="Proprietary algorithm to predict adult weight and generate customized nutrition protocols for giant breeds."
+                url="/growth"
+                category="HealthApplication"
+                features={["Giant-breed growth curves", "Tactical nutrition calculation", "Weight-based gear recommendations", "Developmental milestones"]}
+            />
             
             <Link href="/" className="inline-flex items-center text-primary mb-8 hover:underline">
                 <ArrowLeft className="w-4 h-4 mr-2" /> Back to Dashboard

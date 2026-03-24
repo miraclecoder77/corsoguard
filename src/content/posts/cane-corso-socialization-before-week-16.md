@@ -29,7 +29,9 @@ A neutrally socialized Corso sees a stranger and thinks: *that's a person, not m
 
 
 
-## Why the Window Closes Faster Than You Think
+[[ToolCard:checklist]]
+
+## Why Week 16 is the Hard Deadline
 
 The developmental science here is well-established and worth understanding. Puppies go through what behaviorists call a "socialization window"—a period of neurological development during which new experiences are filed away as normal rather than threatening. For dogs, this window opens around three weeks and begins to close somewhere between twelve and sixteen weeks, depending on the individual.
 

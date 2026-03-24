@@ -16,7 +16,10 @@ It also means that "filling out"—the broad chest, thick neck, and imposing mus
 
 
 
-## Birth to 8 Weeks: The Foundation Phase
+[[ToolCard:growth]]
+
+## The Core Growth Window: Birth to 16 Weeks
+: The Foundation Phase
 
 You probably weren't there for this part, but it matters. The first eight weeks of a Corso's life are when the neurological and physical groundwork gets laid. Birth weights typically range from 500 to 700 grams, and by eight weeks a healthy Corso puppy should weigh somewhere between 10 and 18 pounds depending on the litter and parentage.
 
@@ -34,7 +37,10 @@ Feeding during this phase matters enormously. A large-breed specific puppy food�
 
 
 
-## 4 to 8 Months: The Awkward Stretch
+[[ToolCard:harness]]
+
+## The Second Window: 4 to 9 Months
+: The Awkward Stretch
 
 Here it is—the phase that causes the most forum posts and the most unnecessary panic. Somewhere around four to five months, many Corsos hit a growth pattern that prioritizes height over everything else. The legs get long. The chest looks narrow. The head, which will eventually be massive and imposing, looks almost too small for the body. The dog is gangly in a way that seems inconsistent with the breed standard photos you've been looking at.
 
