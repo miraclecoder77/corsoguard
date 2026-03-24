@@ -67,7 +67,8 @@ Here's where a lot of people go wrong even after picking the right harness style
 
 For a Cane Corso, you need to measure the chest girth at the widest point, the neck circumference, and the length from the base of the neck to where the chest meets the belly. Then cross-reference those measurements against the manufacturer's actual sizing chart, not their weight guide.
 
-> **Not sure what size your Corso needs?** Use our [Harness Sizing Calculator](/harness) to get a personalized recommendation based on your dog's exact measurements and weight.
+> **Not sure what size your Corso needs?**
+> [[ToolCard:harness]]
 
 A properly fitted harness should sit snug but not restrictive—you're aiming for two fingers of clearance under every strap. If you can slip your whole hand under the chest panel, it's too loose. If the elbow straps are sitting directly on the joint rather than just behind it, size up or adjust.
 

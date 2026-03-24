@@ -70,10 +70,10 @@ Think of it like a health vault. Everything in one place, always current, always
 
 
 
-## Final Thought
+Start with the screening. Build the records. Stay ahead of it. Your Corso can't advocate for himself—but you can.
 
-The Cane Corso is a breed that asks a lot of you. They need structure, they need engagement, and they need an owner who takes their health seriously—not just when something goes wrong, but from the very beginning.
+[[ToolCard:age-converter]]
 
-The tools available in 2026 are genuinely impressive. DSRA testing, modern hip scoring standards, and evidence-based supplementation mean that a lot of the health outcomes that used to feel like bad luck are now, at least in part, manageable. You can't eliminate every risk. But you can stop flying blind.
+[[ToolCard:lifetime-cost]]
 
-Start with the screening. Build the records. Stay ahead of it. Your Corso can't advocate for himself—but you can...
+### Final Thought

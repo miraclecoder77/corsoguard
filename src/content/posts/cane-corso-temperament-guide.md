@@ -98,4 +98,6 @@ The Cane Corso temperament is not a problem to be managed. It's a set of qualiti
 
 Bring structure, presence, and genuine commitment, and what you get in return is a dog that will be the most devoted, capable, and deeply connected companion you've ever owned. Is that right for your home? Only you can answer that honestly.
 
-But if the answer is yes—really yes—there are few breeds in the world that will reward it more...
+But if the answer is yes—really yes—there are few breeds in the world that will reward it more.
+
+[[ToolCard:checklist]]
