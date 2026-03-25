@@ -6,8 +6,14 @@ interface ToolCardProps {
   toolId: 'age' | 'checklist' | 'growth' | 'harness' | 'cost';
 }
 
-const tools = {
+const tools: Record<string, any> = {
   age: {
+    title: "Human Age Converter",
+    text: "See exactly how old your Corso is in human years.",
+    icon: <Clock className="w-5 h-5 text-primary" />,
+    href: "/age-converter"
+  },
+  "age-converter": {
     title: "Human Age Converter",
     text: "See exactly how old your Corso is in human years.",
     icon: <Clock className="w-5 h-5 text-primary" />,
@@ -36,11 +42,22 @@ const tools = {
     text: "Plan your long-term financial commitment.",
     icon: <DollarSign className="w-5 h-5 text-primary" />,
     href: "/lifetime-cost"
+  },
+  "lifetime-cost": {
+    title: "Lifetime Cost Calculator",
+    text: "Plan your long-term financial commitment.",
+    icon: <DollarSign className="w-5 h-5 text-primary" />,
+    href: "/lifetime-cost"
   }
 };
 
 const ToolCard: React.FC<ToolCardProps> = ({ toolId }) => {
   const tool = tools[toolId];
+
+  if (!tool) {
+    console.error(`ToolCard: Invalid toolId "${toolId}"`);
+    return null;
+  }
   
   return (
     <Link href={tool.href} className="block my-8 no-underline group">
