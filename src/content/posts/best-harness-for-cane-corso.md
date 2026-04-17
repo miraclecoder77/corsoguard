@@ -65,7 +65,7 @@ After spending way too much time researching this—and yes, testing on a 105-po
 
 Here's where a lot of people go wrong even after picking the right harness style—they size it based on weight alone. "My dog is 110 pounds so I'll grab the XL." That's not how this works.
 
-For a Cane Corso, you need to measure the chest girth at the widest point, the neck circumference, and the length from the base of the neck to where the chest meets the belly. Then cross-reference those measurements against the manufacturer's actual sizing chart, not their weight guide.
+For a Cane Corso, you need to measure the chest girth at the widest point, the neck circumference, and the length from the base of the neck to where the chest meets the belly. Then cross-reference those measurements against the manufacturer's actual sizing chart, not their weight guide. Having a solid read on your dog's expected size using the [corso scale](/growth) can also help you predict when they might outgrow their current harness.
 
 > **Not sure what size your Corso needs?**
 > [[ToolCard:harness]]

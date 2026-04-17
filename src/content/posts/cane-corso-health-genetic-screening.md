@@ -55,7 +55,7 @@ For Corsos specifically—especially those with any genetic or physical indicato
 
 What doesn't have great evidence behind it? A lot of the trendy "joint blends" with fifteen ingredients and vague claims. More isn't always more. Pick something with clear dosing, recognizable active ingredients, and ideally a product formulated for large breeds—because dosing for a 110-pound Corso is very different from dosing for a 40-pound dog.
 
-One thing worth noting: supplements are supportive, not corrective. If your Corso already has significant joint issues, supplementation alone isn't enough. It works best as part of a broader management plan that includes appropriate exercise, weight management (Corsos can pack on pounds fast, and every extra pound is extra joint load), and regular veterinary monitoring.
+One thing worth noting: supplements are supportive, not corrective. If your Corso already has significant joint issues, supplementation alone isn't enough. It works best as part of a broader management plan that includes appropriate exercise, weight management (Corsos can pack on pounds fast, and tracking where they fall on the [corso scale](/growth) helps manage joint load), and regular veterinary monitoring.
 
 
 ## The Case for Keeping Digital Health Records

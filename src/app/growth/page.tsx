@@ -6,9 +6,9 @@ import FAQSchema from "@/components/FAQSchema";
 import ToolSchema from "@/components/ToolSchema";
 
 export const metadata: Metadata = {
-    title: "Cane Corso Growth Predictor & Weight Calculator | Adult Size Prediction",
-    description: "Predict your Cane Corso's adult weight with our specialized giant-breed growth curve calculator. Includes tactical nutrition and K9 gear recommendations.",
-    keywords: ["cane corso weight calculator", "dog growth predictor", "giant breed weight chart", "large dog growth curve"],
+    title: "Cane Corso Scale: Growth Predictor & Weight Calculator",
+    description: "Check where your dog ranks on the Cane Corso Scale. Predict your Cane Corso's adult weight with our specialized giant-breed growth curve calculator.",
+    keywords: ["corso scale", "cane corso scale", "cane corso weight calculator", "dog growth predictor", "giant breed weight chart"],
     alternates: {
         canonical: "https://corsoguard.com/growth",
     },
@@ -48,7 +48,7 @@ export default function GrowthPage() {
             <div className="mb-8">
                 <h1 className="text-4xl font-extrabold tracking-tight mb-2 text-white flex items-center">
                     <Calculator className="w-8 h-8 mr-3 text-primary" />
-                    Growth & Nutrition Predictor
+                    Cane Corso Scale & Growth Predictor
                 </h1>
                 <p className="text-neutral-400">
                     Enter your Cane Corso's stats to predict their adult weight and generate a customized tactical nutrition protocol using our proprietary growth algorithms.

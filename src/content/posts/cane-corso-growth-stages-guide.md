@@ -1,4 +1,5 @@
-# The 24-Month Transformation: A Complete Guide to Cane Corso Growth Stages
+# The Cane Corso Scale: A Complete Guide to Growth Stages (24-Month Transformation)
+
 
 Ask any Cane Corso owner about the first two years and you'll get the same mix of emotions—wonder, anxiety, confusion, and a lot of late-night forum searches. "Is my Corso too small for six months?" "Why does he look so lanky right now?" "When do they actually *fill out*?" These questions aren't coming from anxious first-time dog owners. They're coming from people who did their research, prepared properly, and are still caught off guard by how strange and nonlinear this breed's development actually is.
 
@@ -92,9 +93,9 @@ It's worth noting that emotional and behavioral maturity often lags slightly beh
 
 Growth charts are useful reference tools—but only if you understand what they can and can't tell you. A weight-for-age chart tells you where your dog falls relative to an average. It doesn't account for lineage, sex, structure, or the particular growth pattern of your individual dog.
 
-> **Want to track your Corso's development?** Use our free [Cane Corso Growth & Nutrition Calculator](/growth) to get a personalized projection based on your dog's age, weight, and sex, plus stage-specific nutrition recommendations.
+> **Want to track your Corso's development?** Use our free [Cane Corso Scale & Growth Calculator](/growth) to get a personalized projection based on your dog's age, weight, and sex, plus stage-specific nutrition recommendations. Check where your dog ranks on the **corso scale** today.
 
-A Growth Predictor tool that factors in your dog's current age, weight, sex, and parental size gives you a much more personalized projection—and more importantly, helps you spot genuine outliers from normal variation. If your six-month male is at 55 pounds and both parents were over 120 pounds, that's useful context a generic chart won't give you. If your dog is tracking significantly above average weight at a young age, it's worth examining whether that's lean mass or fat accumulation.
+A Growth Predictor tool that factors in your dog's current age, weight, sex, and parental size gives you a much more personalized projection—and more importantly, helps you spot genuine outliers from normal variation. Understanding the true *corso scale* for your specific pup. If your six-month male is at 55 pounds and both parents were over 120 pounds, that's useful context a generic chart won't give you. If your dog is tracking significantly above average weight at a young age, it's worth examining whether that's lean mass or fat accumulation.
 
 Think of the numbers as a conversation starter with your vet, not a verdict. The goal isn't to hit a specific weight at a specific month. The goal is a structurally sound, well-conditioned dog that arrives at adulthood with healthy joints, appropriate muscle development, and the physical foundation to live a long, active life.
 
