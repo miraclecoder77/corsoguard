@@ -1,8 +1,8 @@
 ---
 title: The Critical Socialization Window (Birth to Week 16)
-description: Why the first 4 months define your Corso's temperament for life.
+description: "The 16-week socialization window can make or break your Cane Corso's temperament. Learn the science, the framework, and what to do if you've missed it."
 date: 2024-02-15
-author: CorsoGuard Training
+author: CorsoGuard Team
 image: /breed-guide-card.png
 category: Training
 readTime: 6 min

@@ -1,3 +1,13 @@
+---
+title: "Cane Corso Growth Stages: The Complete 24-Month Guide"
+description: "Month-by-month Cane Corso growth guide. Learn the awkward stretch phase, deceptive plateau, and when Corsos fully fill out — with a free weight predictor."
+date: 2024-03-20
+author: CorsoGuard Team
+image: /corso-growth-predictor.jpg
+category: Growth
+readTime: 9 min
+---
+
 # The Cane Corso Scale: A Complete Guide to Growth Stages (24-Month Transformation)
 
 

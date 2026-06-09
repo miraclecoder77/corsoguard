@@ -2,7 +2,7 @@
 title: Essential Health & Genetic Screening for Cane Corsos
 description: Why DNA testing and hip/elbow scoring are non-negotiable for the breed.
 date: 2024-02-20
-author: CorsoGuard Health
+author: CorsoGuard Team
 image: /blog/health.png
 category: Health
 readTime: 5 min

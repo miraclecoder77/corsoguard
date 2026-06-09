@@ -15,8 +15,8 @@ interface RouteEntry {
 
 const BASE_URL = 'https://corsoguard.com';
 
-// Use a fixed deploy date for static routes — update when content changes
-const SITE_LAST_UPDATED = '2025-04-01';
+// ⚠️  Update this date every time you publish or modify content
+const SITE_LAST_UPDATED = '2026-06-09';
 
 const staticRoutes: RouteEntry[] = [
   { url: '', priority: 1.0, changeFrequency: 'daily', lastmod: SITE_LAST_UPDATED },

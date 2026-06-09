@@ -2,8 +2,8 @@
 title: Cane Corso Temperament Guide: Is This Protective Giant Right for Your Home?
 description: An honest look at the Cane Corso personality, loyalty, and guardianship.
 date: 2024-03-10
-author: CorsoGuard Expert
-image: /blog/temperament.png
+author: CorsoGuard Team
+image: /breed-guide-card.png
 category: Behavior
 readTime: 6 min
 ---

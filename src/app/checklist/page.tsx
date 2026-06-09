@@ -56,6 +56,16 @@ export default function ChecklistPage() {
             </div>
 
             <ChecklistClient />
+            
+            <div className="mt-16 space-y-8 border-t border-white/10 pt-16">
+                <h2 className="text-3xl font-bold text-white mb-6">Related Guides</h2>
+                <div className="grid md:grid-cols-2 gap-6">
+                    <Link href="/blog/cane-corso-socialization-before-week-16" className="p-6 bg-white/[0.02] border border-white/[0.05] rounded-xl hover:border-primary/30 transition block">
+                        <h4 className="text-primary font-bold mb-2">The Critical Socialization Window</h4>
+                        <p className="text-sm text-neutral-400">The 16-week socialization window can make or break your Cane Corso's temperament. Learn the science and the framework.</p>
+                    </Link>
+                </div>
+            </div>
         </div>
     );
 }

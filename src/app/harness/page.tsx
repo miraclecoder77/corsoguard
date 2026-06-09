@@ -163,6 +163,18 @@ export default function HarnessSizing() {
                         </div>
                     </div>
                 </section>
+                
+                <section>
+                    <div className="flex items-center mb-8">
+                        <h2 className="text-2xl font-bold text-white">Related Guides</h2>
+                    </div>
+                    <div className="grid md:grid-cols-2 gap-6">
+                        <Link href="/blog/best-harness-for-cane-corso" className="p-6 bg-white/[0.02] border border-white/[0.05] rounded-xl hover:border-primary/30 transition block">
+                            <h4 className="text-primary font-bold mb-2">Best Tactical Harnesses in 2024</h4>
+                            <p className="text-sm text-neutral-400">Find the best tactical harness for your Cane Corso. We review the top heavy-duty K9 harnesses built for giant breed strength and control.</p>
+                        </Link>
+                    </div>
+                </section>
             </div>
             
             <Script

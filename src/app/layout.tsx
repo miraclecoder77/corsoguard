@@ -74,6 +74,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
+        {/* Google Search Console Verification placeholder */}
+        <meta name="google-site-verification" content="INSERT_YOUR_VERIFICATION_CODE_HERE" />
+        
         {/* AdSense Script placeholder */}
         <Script
           id="adsense"

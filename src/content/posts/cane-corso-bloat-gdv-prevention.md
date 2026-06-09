@@ -2,7 +2,7 @@
 title: Preventing Bloat (GDV) in Cane Corsos
 description: Critical health guide on identifying and preventing the #1 killer of large breeds.
 date: 2024-03-01
-author: CorsoGuard Health
+author: CorsoGuard Team
 image: /blog/bloat.png
 category: Health
 readTime: 10 min

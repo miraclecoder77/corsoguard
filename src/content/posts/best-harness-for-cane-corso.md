@@ -1,9 +1,9 @@
 ---
 title: Best Tactical Harnesses for Cane Corsos in 2024
-description: Heavy-duty gear reviews for the world's most powerful guardian breed.
+description: "Find the best tactical harness for your Cane Corso. We review the top heavy-duty K9 harnesses built for giant breed strength and control."
 date: 2024-03-05
-author: CorsoGuard Expert
-image: /blog/harness.png
+author: CorsoGuard Team
+image: /harness-sizing-card.png
 category: Gear
 readTime: 8 min
 ---

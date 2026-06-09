@@ -15,10 +15,10 @@ export default function Home() {
     <div className="min-h-screen p-8 pt-24 max-w-7xl mx-auto">
       <div className="mb-12">
         <h1 className="text-5xl font-extrabold tracking-tight mb-4 text-white">
-          Corso<span className="text-primary">Guard</span>
+          Cane Corso <span className="text-primary">Growth Predictor</span> & Owner Toolkit
         </h1>
         <p className="text-neutral-400 text-lg max-w-2xl">
-          The ultimate tactical toolkit for Cane Corso owners. Predict growth, manage socialization, and secure the right gear.
+          The most accurate Cane Corso tools on the web — predict growth, master socialization, and gear up right.
         </p>
       </div>
 
