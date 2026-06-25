@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://corsoguard.com"),
+  metadataBase: new URL("https://www.corsoguard.com"),
   title: {
     default: "CorsoGuard | Tactical Cane Corso Toolkit",
     template: "%s | CorsoGuard"
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   authors: [{ name: "CorsoGuard Team" }],
   creator: "CorsoGuard",
   alternates: {
-    canonical: "https://corsoguard.com",
+    canonical: "https://www.corsoguard.com",
   },
   robots: {
     index: true,
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://corsoguard.com",
+    url: "https://www.corsoguard.com",
     siteName: "CorsoGuard",
     title: "CorsoGuard | Tactical Cane Corso Toolkit",
     description: "Predict growth, manage socialization protocol, and secure high-performance gear for your Cane Corso.",
@@ -74,10 +74,15 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
-        {/* Google Search Console Verification placeholder */}
-        <meta name="google-site-verification" content="INSERT_YOUR_VERIFICATION_CODE_HERE" />
-        
-        {/* AdSense Script placeholder */}
+        {/*
+          OWNER ACTION REQUIRED:
+          Replace the content value below with your real Google Search Console
+          verification code, then redeploy. Do NOT leave it blank or as a placeholder.
+          Get your code at: https://search.google.com/search-console
+        */}
+        {/* <meta name="google-site-verification" content="YOUR_REAL_CODE_HERE" /> */}
+
+        {/* AdSense Script */}
         <Script
           id="adsense"
           async
@@ -101,8 +106,8 @@ export default function RootLayout({
                 "@context": "https://schema.org",
                 "@type": "Organization",
                 "name": "CorsoGuard",
-                "url": "https://corsoguard.com",
-                "logo": "https://corsoguard.com/logo.png",
+                "url": "https://www.corsoguard.com",
+                "logo": "https://www.corsoguard.com/logo.png",
                 "sameAs": [
                   "https://twitter.com/corsoguard",
                   "https://instagram.com/corsoguard"
@@ -112,10 +117,10 @@ export default function RootLayout({
                 "@context": "https://schema.org",
                 "@type": "WebSite",
                 "name": "CorsoGuard",
-                "url": "https://corsoguard.com",
+                "url": "https://www.corsoguard.com",
                 "potentialAction": {
                   "@type": "SearchAction",
-                  "target": "https://corsoguard.com/blog?q={search_term_string}",
+                  "target": "https://www.corsoguard.com/blog?q={search_term_string}",
                   "query-input": "required name=search_term_string"
                 }
               }

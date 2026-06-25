@@ -8,12 +8,10 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
         disallow: ['/private/', '/admin/', '/api/', '/tmp/', '/draft/'],
       },
-      // Example: opt out of AI training crawlers
-      // {
-      //   userAgent: ['GPTBot', 'Claude-Web', 'CCBot'],
-      //   disallow: '/',
-      // },
+      // AI crawlers are explicitly ALLOWED — do not add disallow rules for these.
+      // GPTBot (OpenAI), PerplexityBot, ClaudeBot (Anthropic),
+      // Google-Extended, CCBot are all permitted to crawl and index this site.
     ],
-    sitemap: 'https://corsoguard.com/sitemap.xml',
+    sitemap: 'https://www.corsoguard.com/sitemap.xml',
   };
 }

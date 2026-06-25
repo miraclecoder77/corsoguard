@@ -1,4 +1,5 @@
-'use client';
+// No 'use client' — intentionally server-rendered so schema is visible
+// to Googlebot's initial HTML pass and all AI crawlers (GPTBot, ClaudeBot, PerplexityBot).
 
 import StructuredData from './StructuredData';
 import { authorConfig } from '@/config/author';
@@ -11,23 +12,30 @@ interface SchemaBridgeProps {
 
 /**
  * SchemaBridge Component
- * 
- * Automatically detects the page intent based on the slug 
- * and injects the most relevant Google-friendly schema.
+ *
+ * Server-rendered. Automatically detects page intent based on slug
+ * and injects the most relevant Google-friendly schema markup.
+ * All schema is output as static HTML — no client-side hydration required.
  */
 export default function SchemaBridge({ slug, metadata, baseUrl }: SchemaBridgeProps) {
   const schemas: any[] = [];
   const fullUrl = `${baseUrl}/blog/${slug}`;
-  const imageUrl = `${baseUrl}${metadata.image}`;
+  const imageUrl = metadata.image ? `${baseUrl}${metadata.image}` : `${baseUrl}/breed-guide-card.png`;
 
-  // 1. Author and Organization References
+  // Use the article's date for both published and modified.
+  // When articles are updated, set a separate `dateModified` field in frontmatter.
+  const datePublished = metadata.date || new Date().toISOString().split('T')[0];
+  const dateModified = metadata.dateModified || datePublished;
+
+  // 1. Author and Organisation References
   const authorNode = {
     '@type': 'Person',
     'name': authorConfig.name,
     'jobTitle': authorConfig.jobTitle,
     'url': authorConfig.url,
     'description': authorConfig.description,
-    'sameAs': authorConfig.sameAs
+    'knowsAbout': authorConfig.knowsAbout,
+    'sameAs': authorConfig.sameAs,
   };
 
   const publisherNode = {
@@ -35,72 +43,77 @@ export default function SchemaBridge({ slug, metadata, baseUrl }: SchemaBridgePr
     'name': 'CorsoGuard',
     'logo': {
       '@type': 'ImageObject',
-      'url': `${baseUrl}/logo.png`
-    }
+      'url': `${baseUrl}/logo.png`,
+    },
   };
 
   // 2. Detection Logic
-  
-  // A. Product/Review Intent (Harness, Best-)
+
+  // A. Gear/Review Intent (Harness, Best-)
+  // Note: AggregateRating removed — ratings must reflect real user reviews.
+  // Add real review data here once a user review system is implemented.
   if (slug.includes('harness') || slug.includes('best-')) {
     schemas.push({
       '@context': 'https://schema.org',
-      '@type': 'Product',
-      'name': metadata.title,
+      '@type': 'Article',
+      'headline': metadata.title,
       'description': metadata.description,
       'image': imageUrl,
-      'brand': { '@type': 'Brand', 'name': 'CorsoGuard Selected' },
-      'aggregateRating': {
-        '@type': 'AggregateRating',
-        'ratingValue': '4.9',
-        'reviewCount': '142'
+      'author': authorNode,
+      'publisher': publisherNode,
+      'datePublished': datePublished,
+      'dateModified': dateModified,
+      'mainEntityOfPage': {
+        '@type': 'WebPage',
+        '@id': fullUrl,
       },
-      'review': {
-        '@type': 'Review',
-        'author': authorNode,
-        'reviewRating': {
-          '@type': 'Rating',
-          'ratingValue': '5',
-          'bestRating': '5'
-        },
-        'reviewBody': `Expert review on technical gear for Mastiffs. This ${metadata.title.toLowerCase()} provides the durability needed for the breed.`
-      }
     });
   }
 
-  // B. Health/Medical Intent (Bloat, Health)
-  else if (slug.includes('bloat') || slug.includes('health')) {
+  // B. Health/Medical Intent (Bloat, Hip, Health, Lifespan, GDV)
+  else if (
+    slug.includes('bloat') ||
+    slug.includes('health') ||
+    slug.includes('hip') ||
+    slug.includes('lifespan') ||
+    slug.includes('gdv')
+  ) {
     schemas.push({
       '@context': 'https://schema.org',
       '@type': 'MedicalWebPage',
       'name': metadata.title,
       'description': metadata.description,
-      'lastReviewed': metadata.date,
+      'lastReviewed': dateModified,
       'reviewedBy': authorNode,
       'medicalAudience': {
         '@type': 'MedicalAudience',
-        'audienceType': 'Dog Owners'
+        'audienceType': 'Dog Owners',
       },
       'relevantSpecialty': {
         '@type': 'MedicalSpecialty',
-        'name': 'Veterinary Medicine'
+        'name': 'Veterinary Medicine',
       },
       'mainEntityOfPage': {
         '@type': 'WebPage',
-        '@id': fullUrl
-      }
+        '@id': fullUrl,
+      },
     });
 
-    // Also include Article for standard ranking
+    // Also include BlogPosting for standard ranking signals
     schemas.push({
       '@context': 'https://schema.org',
-      '@type': 'Article',
+      '@type': 'BlogPosting',
       'headline': metadata.title,
       'image': imageUrl,
       'author': authorNode,
       'publisher': publisherNode,
-      'datePublished': metadata.date,
-      'description': metadata.description
+      'datePublished': datePublished,
+      'dateModified': dateModified,
+      'description': metadata.description,
+      'mainEntityOfPage': {
+        '@type': 'WebPage',
+        '@id': fullUrl,
+      },
     });
   }
 
@@ -113,8 +126,13 @@ export default function SchemaBridge({ slug, metadata, baseUrl }: SchemaBridgePr
       'image': imageUrl,
       'author': authorNode,
       'publisher': publisherNode,
-      'datePublished': metadata.date,
-      'description': metadata.description
+      'datePublished': datePublished,
+      'dateModified': dateModified,
+      'description': metadata.description,
+      'mainEntityOfPage': {
+        '@type': 'WebPage',
+        '@id': fullUrl,
+      },
     });
   }
 

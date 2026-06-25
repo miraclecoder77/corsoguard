@@ -13,7 +13,7 @@ interface RouteEntry {
   lastmod?: string; // explicit date instead of "now"
 }
 
-const BASE_URL = 'https://corsoguard.com';
+const BASE_URL = 'https://www.corsoguard.com';
 
 // ⚠️  Update this date every time you publish or modify content
 const SITE_LAST_UPDATED = '2026-06-09';
