@@ -85,6 +85,14 @@ export default function RootLayout({
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3995859754454351`}
           crossOrigin="anonymous"
         />
+
+        {/* Ahrefs Web Analytics */}
+        <Script
+          id="ahrefs-analytics"
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="BDjqtpbYs2SPMxCnUef4ew"
+          strategy="afterInteractive"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
