@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description: "The ultimate tactical socialization protocol for Cane Corso puppies. 100 stimulus items to ensure a stable, confident, and bulletproof adult dog.",
     keywords: ["cane corso socialization checklist", "puppy socialization protocol", "giant breed training", "dog behavior checklist"],
     alternates: {
-        canonical: "https://corsoguard.com/checklist",
+        canonical: "https://www.corsoguard.com/checklist",
     },
 };
 

@@ -7,7 +7,19 @@ export default function Footer() {
                 <div className="text-sm text-muted-foreground font-mono">
                     &copy; {new Date().getFullYear()} CorsoGuard. All rights reserved.
                 </div>
-                <nav className="flex items-center gap-6 text-sm font-medium">
+                <nav className="flex items-center gap-6 text-sm font-medium flex-wrap justify-center">
+                    <Link
+                        href="/about"
+                        className="text-muted-foreground hover:text-primary transition-colors"
+                    >
+                        About
+                    </Link>
+                    <Link
+                        href="/blog"
+                        className="text-muted-foreground hover:text-primary transition-colors"
+                    >
+                        Blog
+                    </Link>
                     <Link
                         href="/privacy"
                         className="text-muted-foreground hover:text-primary transition-colors"
@@ -20,12 +32,12 @@ export default function Footer() {
                     >
                         Disclosure
                     </Link>
-                    <Link
-                        href="/blog"
+                    <a
+                        href="mailto:hello@corsoguard.com"
                         className="text-muted-foreground hover:text-primary transition-colors"
                     >
-                        Blog
-                    </Link>
+                        Contact
+                    </a>
                 </nav>
             </div>
         </footer>

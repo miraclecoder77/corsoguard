@@ -1,11 +1,12 @@
-import { Shield, Award, Activity } from "lucide-react";
+import { Shield, Award, Activity, Mail, ExternalLink } from "lucide-react";
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
-    title: "About Us | Our E-E-A-T Commitment",
-    description: "Meet the Cane Corso handlers behind CorsoGuard. Our tools are built on real breed experience, canine science, and vet-backed data.",
+    title: "About CorsoGuard | Cane Corso Breed Resource",
+    description: "CorsoGuard is built by experienced Cane Corso handlers. Learn who we are, why we built these tools, and how we approach breed-specific content.",
     alternates: {
-        canonical: "https://corsoguard.com/about",
+        canonical: "https://www.corsoguard.com/about",
     },
 };
 
@@ -16,48 +17,105 @@ export default function AboutPage() {
                 <Shield className="w-16 h-16 text-primary mx-auto mb-6" />
                 <h1 className="text-5xl font-extrabold text-white mb-4">About CorsoGuard</h1>
                 <p className="text-xl text-neutral-400 max-w-2xl mx-auto">
-                    Built by Cane Corso experts, for Cane Corso owners. We combine tactical methodology with canine behavioral science.
+                    Built by Cane Corso handlers, for Cane Corso owners. We combine practical breed experience with canine developmental science to create tools that actually help.
                 </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-12 mb-16">
                 <div>
-                    <h2 className="text-3xl font-bold text-white mb-4">Meet The CorsoGuard Team</h2>
+                    <h2 className="text-3xl font-bold text-white mb-4">Who We Are</h2>
                     <p className="text-neutral-300 mb-4 leading-relaxed">
-                        We are the CorsoGuard Editorial Team—a collective of passionate Cane Corso owners, experienced handlers, and researchers. We founded CorsoGuard because we were tired of generic dog advice that didn't apply to the unique needs, growth patterns, and drive of the Cane Corso.
-                    </p>
-                    <h3 className="text-xl font-bold text-white mt-8 mb-4">Our E-E-A-T Commitment</h3>
-                    <p className="text-neutral-300 mb-4 leading-relaxed">
-                        <strong>Experience:</strong> Decades of hands-on experience training, socializing, and managing high-drive Corsos in family and working environments.
+                        CorsoGuard was founded by Cane Corso owners who grew frustrated with the generic large-breed advice that dominates dog information sites. Advice designed for a 40-lb Labrador is not the same advice a 120-lb working guardian breed needs — and applying it is how Corsos end up overweight, under-structured, and behaviourally mismanaged.
                     </p>
                     <p className="text-neutral-300 mb-4 leading-relaxed">
-                        <strong>Expertise:</strong> Our tools are built on established canine developmental psychology and large-breed orthopedic science.
-                    </p>
-                    <p className="text-neutral-300 mb-4 leading-relaxed">
-                        <strong>Authoritativeness:</strong> We consult with veterinary nutritionists to ensure our growth models reflect healthy, sustainable development curves.
+                        We focus exclusively on the Cane Corso. Our tools are built on established giant-breed developmental science, breed-specific orthopedic research, and hands-on experience managing Corsos through every stage from 8-week puppy to senior guardian.
                     </p>
                     <p className="text-neutral-300 leading-relaxed">
-                        <strong>Trust:</strong> No sponsored bias in our gear reviews, strict data privacy, and a commitment to breed welfare over quick fixes.
+                        Everything on this site — the growth algorithm, the feeding data, the socialization protocol — is derived from sources we would trust for our own dogs, not from generic content farms.
                     </p>
+
+                    <h3 className="text-xl font-bold text-white mt-10 mb-4">Our Content Standards</h3>
+                    <ul className="space-y-3 text-neutral-300">
+                        <li className="flex gap-3">
+                            <span className="text-primary mt-1">▸</span>
+                            <span><strong className="text-white">Breed-specific or nothing.</strong> We do not publish generic large-breed content re-labelled as Cane Corso advice. Every article covers something specific to this breed&apos;s biology, behaviour, or care requirements.</span>
+                        </li>
+                        <li className="flex gap-3">
+                            <span className="text-primary mt-1">▸</span>
+                            <span><strong className="text-white">No sponsored reviews.</strong> Gear reviewed on this site is assessed for Cane Corso fit, durability under giant-breed use, and value. We have no paid placement agreements with manufacturers.</span>
+                        </li>
+                        <li className="flex gap-3">
+                            <span className="text-primary mt-1">▸</span>
+                            <span><strong className="text-white">Health content is conservative.</strong> For any health, nutrition, or veterinary guidance on this site, we recommend consulting your veterinarian before acting on it. Our content provides context and questions to ask — not a substitute for a vet relationship.</span>
+                        </li>
+                    </ul>
                 </div>
-                <div className="bg-black/40 border border-white/10 rounded-2xl p-8 flex flex-col justify-center gap-6">
-                    <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20">
-                            <Award className="text-primary w-6 h-6" />
-                        </div>
-                        <div>
-                            <div className="font-bold text-white">Experienced Handlers</div>
-                            <div className="text-sm text-neutral-400">Decades of combined breed experience.</div>
+
+                <div className="space-y-6">
+                    <div className="bg-black/40 border border-white/10 rounded-2xl p-8">
+                        <h3 className="text-lg font-bold text-white mb-6">Our Expertise Areas</h3>
+                        <div className="space-y-5">
+                            <div className="flex items-start gap-4">
+                                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20 flex-shrink-0 mt-0.5">
+                                    <Award className="text-primary w-5 h-5" />
+                                </div>
+                                <div>
+                                    <div className="font-bold text-white">Giant-Breed Growth & Nutrition</div>
+                                    <div className="text-sm text-neutral-400 mt-1">Calcium ratios, growth plate timelines, lean-growth protocols specific to dogs over 100 lbs.</div>
+                                </div>
+                            </div>
+                            <div className="flex items-start gap-4">
+                                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20 flex-shrink-0 mt-0.5">
+                                    <Activity className="text-primary w-5 h-5" />
+                                </div>
+                                <div>
+                                    <div className="font-bold text-white">Cane Corso Breed Health</div>
+                                    <div className="text-sm text-neutral-400 mt-1">GDV/Bloat prevention, DCM screening, hip/elbow health management, and lifespan optimisation for this specific breed.</div>
+                                </div>
+                            </div>
+                            <div className="flex items-start gap-4">
+                                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20 flex-shrink-0 mt-0.5">
+                                    <Shield className="text-primary w-5 h-5" />
+                                </div>
+                                <div>
+                                    <div className="font-bold text-white">Guardian Breed Behaviour</div>
+                                    <div className="text-sm text-neutral-400 mt-1">Socialisation protocols, handler authority development, and managing the Corso&apos;s protective instincts responsibly in family environments.</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20">
-                            <Activity className="text-primary w-6 h-6" />
-                        </div>
-                        <div>
-                            <div className="font-bold text-white">Data-Driven Models</div>
-                            <div className="text-sm text-neutral-400">Algorithms audited against real growth curves.</div>
-                        </div>
+
+                    <div className="bg-black/40 border border-white/10 rounded-2xl p-8">
+                        <h3 className="text-lg font-bold text-white mb-4">Contact & Corrections</h3>
+                        <p className="text-neutral-400 text-sm mb-5">
+                            Found an error in our content? Have a question about a specific tool? We read every message and take corrections seriously.
+                        </p>
+                        <a
+                            href="mailto:hello@corsoguard.com"
+                            className="inline-flex items-center gap-2 text-primary hover:text-white transition font-medium text-sm"
+                        >
+                            <Mail className="w-4 h-4" />
+                            hello@corsoguard.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            {/* E-E-A-T Trust Signals */}
+            <div className="border-t border-white/10 pt-12 mb-12">
+                <h2 className="text-2xl font-bold text-white mb-6">Transparency</h2>
+                <div className="grid md:grid-cols-3 gap-6 text-sm text-neutral-400">
+                    <div className="p-5 bg-white/[0.02] border border-white/[0.06] rounded-xl">
+                        <div className="font-bold text-white mb-2">Affiliate Disclosure</div>
+                        <p>Some gear links on this site use affiliate programs. This never influences which products we recommend — only products we would use for a Corso earn a mention. See our <Link href="/disclosure" className="text-primary hover:underline">full disclosure</Link>.</p>
+                    </div>
+                    <div className="p-5 bg-white/[0.02] border border-white/[0.06] rounded-xl">
+                        <div className="font-bold text-white mb-2">Medical Disclaimer</div>
+                        <p>Health and nutrition content on CorsoGuard is for educational purposes. It is not veterinary advice. Always consult a licensed veterinarian for your dog&apos;s specific health decisions.</p>
+                    </div>
+                    <div className="p-5 bg-white/[0.02] border border-white/[0.06] rounded-xl">
+                        <div className="font-bold text-white mb-2">Content Updates</div>
+                        <p>We review health and gear articles quarterly. Articles display a &quot;Last Updated&quot; date when they have been revised after initial publication. Outdated information is corrected, not silently archived.</p>
                     </div>
                 </div>
             </div>
@@ -68,8 +126,25 @@ export default function AboutPage() {
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
                         "@type": "Organization",
-                        "name": "CorsoGuard Editorial Team",
-                        "url": "https://corsoguard.com/about"
+                        "name": "CorsoGuard",
+                        "url": "https://www.corsoguard.com",
+                        "logo": "https://www.corsoguard.com/logo.png",
+                        "description": "Breed-specific tools and guides for Cane Corso owners. Growth prediction, socialization protocols, health guides, and tactical gear advice.",
+                        "contactPoint": {
+                            "@type": "ContactPoint",
+                            "email": "hello@corsoguard.com",
+                            "contactType": "editorial"
+                        },
+                        "sameAs": [
+                            "https://twitter.com/corsoguard",
+                            "https://instagram.com/corsoguard"
+                        ],
+                        "knowsAbout": [
+                            "Cane Corso Breed Health",
+                            "Giant Breed Nutrition",
+                            "Canine Developmental Science",
+                            "Working Dog Equipment"
+                        ]
                     })
                 }}
             />

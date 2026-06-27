@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description: "Use our tactical harness sizing calculator for your Cane Corso. Get precise measurements for heavy-duty K9 gear based on weight class and adult growth data.",
     keywords: ["Cane Corso harness size chart", "tactical dog harness calculator", "heavy duty K9 gear", "dog harness weight guide"],
     alternates: {
-        canonical: "https://corsoguard.com/harness",
+        canonical: "https://www.corsoguard.com/harness",
     },
     openGraph: {
         title: "Cane Corso Tactical Harness Sizing Guide",

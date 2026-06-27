@@ -10,6 +10,9 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
     title: "Expert Cane Corso Breed Guides",
     description: "Expert Cane Corso guides on growth, training, health, and behavior. Built for owners who take their dog's development seriously.",
+    alternates: {
+        canonical: "https://www.corsoguard.com/blog",
+    },
 };
 
 export default function BlogIndex() {

@@ -8,6 +8,7 @@ import AdSenseUnit from '@/components/AdSenseUnit';
 import { parseMarkdown } from '@/lib/markdown';
 import StructuredData from '@/components/StructuredData';
 import SchemaBridge from '@/components/SchemaBridge';
+import FAQSchema from '@/components/FAQSchema';
 import ToolCard from '@/components/ToolCard';
 import RiskCalculator from '@/components/RiskCalculator';
 
@@ -19,17 +20,20 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         const fileContents = fs.readFileSync(fullPath, 'utf8');
         const { metadata } = parseMarkdown(fileContents);
         
-        // Root layout handles the "| CorsoGuard" suffix via title.template
         return {
             title: metadata.title,
             description: metadata.description || `Expert Cane Corso advice on ${metadata.title}. E-E-A-T backed guide.`,
+            alternates: {
+                canonical: `https://www.corsoguard.com/blog/${slug}`,
+            },
             openGraph: {
                 title: metadata.title,
                 description: metadata.description,
-                url: `https://corsoguard.com/blog/${slug}`,
+                url: `https://www.corsoguard.com/blog/${slug}`,
                 images: [metadata.image || '/breed-guide-card.png'],
                 type: 'article',
                 publishedTime: metadata.date,
+                modifiedTime: (metadata as any).dateModified || metadata.date,
             },
         };
     } catch (e) {
@@ -75,7 +79,7 @@ async function getRelatedArticles(currentSlug: string, category: string) {
 
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
-    const baseUrl = 'https://corsoguard.com';
+    const baseUrl = 'https://www.corsoguard.com';
 
     const fullPath = path.join(process.cwd(), `src/content/posts/${slug}.md`);
     let fileContents = '';
@@ -103,6 +107,10 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         <div className="min-h-screen bg-black text-white">
             <StructuredData data={breadcrumbSchema} />
             <SchemaBridge slug={slug} metadata={metadata} baseUrl={baseUrl} />
+            {/* FAQPage schema from frontmatter faqs field — used on articles with structured FAQ blocks */}
+            {(metadata as any).faqs && Array.isArray((metadata as any).faqs) && (
+                <FAQSchema items={(metadata as any).faqs} />
+            )}
 
             {/* Hero Section */}
             <div className="relative w-full h-[60vh] min-h-[400px]">
@@ -133,14 +141,19 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                         {metadata.title || slug.replace(/-/g, ' ')}
                     </h1>
                     
-                    <div className="flex items-center gap-8 text-neutral-400">
+                    <div className="flex items-center gap-8 text-neutral-400 flex-wrap">
                         <div className="flex items-center">
                             <User className="w-4 h-4 mr-2 text-primary" />
                             <span className="text-sm font-medium">{metadata.author || 'CorsoGuard Team'}</span>
                         </div>
                         <div className="flex items-center">
                             <Calendar className="w-4 h-4 mr-2 text-primary" />
-                            <span className="text-sm font-medium">{metadata.date || 'March 2024'}</span>
+                            <span className="text-sm font-medium">
+                                {(metadata as any).dateModified && (metadata as any).dateModified !== metadata.date
+                                    ? `Updated ${(metadata as any).dateModified}`
+                                    : metadata.date || 'June 2026'
+                                }
+                            </span>
                         </div>
                     </div>
                 </div>

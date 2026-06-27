@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     description: "Calculate the total lifetime cost of owning a Cane Corso. Includes initial purchase, premium nutrition, veterinary care, and insurance budgeting.",
     keywords: ["cane corso cost", "dog ownership budget", "giant breed expenses", "pet cost calculator"],
     alternates: {
-        canonical: "https://corsoguard.com/lifetime-cost",
+        canonical: "https://www.corsoguard.com/lifetime-cost",
     },
 };
 

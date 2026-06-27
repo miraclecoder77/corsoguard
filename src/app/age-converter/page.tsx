@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description: "Calculate your Cane Corso's human age using our scientifically accurate giant-breed formula. Compare development milestones with human life stages.",
     keywords: ["dog age calculator", "cane corso human age", "giant breed age formula", "large dog aging chart"],
     alternates: {
-        canonical: "https://corsoguard.com/age-converter",
+        canonical: "https://www.corsoguard.com/age-converter",
     },
 };
 

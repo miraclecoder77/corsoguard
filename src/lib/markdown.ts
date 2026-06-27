@@ -3,6 +3,7 @@ export interface BlogPostMetadata {
     title: string;
     description: string;
     date: string;
+    dateModified: string;
     author: string;
     image: string;
     category: string;
@@ -30,7 +31,7 @@ export function parseMarkdown(content: string) {
         });
     }
 
-    // Basic markdown to HTML conversion (reusing logic from page.tsx but more robust)
+    // Basic markdown to HTML conversion
     let html = markdownContent;
 
     // Headers
@@ -41,11 +42,33 @@ export function parseMarkdown(content: string) {
     // Blockquotes
     html = html.replace(/^> (.*$)/gim, '<div class="bg-neutral-800/50 border-l-4 border-primary p-6 my-8 rounded-r-xl text-neutral-200 text-lg shadow-lg border-y border-r border-white/5">$1</div>');
 
+    // Markdown tables — process full table blocks (header + separator + rows)
+    html = html.replace(
+        /(\|[^\n]+\|\n)((?:\|[-: ]+)+\|\n)((?:\|[^\n]+\|\n?)*)/gm,
+        (match, header, _sep, body) => {
+            const parseRow = (row: string, tag: string) =>
+                '<tr>' +
+                row.split('|')
+                   .slice(1, -1)
+                   .map(cell => `<${tag} class="${tag === 'th' ? 'py-2 px-3 text-left text-primary text-xs uppercase tracking-widest font-bold border-b border-white/10' : 'py-2 px-3 text-neutral-300 border-b border-white/5'}">${cell.trim()}</${tag}>`)
+                   .join('') +
+                '</tr>';
+            const headerRow = parseRow(header.trim(), 'th');
+            const bodyRows = body.trim().split('\n').filter(Boolean).map((r: string) => parseRow(r, 'td')).join('');
+            return `<div class="overflow-x-auto my-8"><table class="w-full text-sm border-collapse bg-white/[0.02] rounded-xl overflow-hidden"><thead>${headerRow}</thead><tbody>${bodyRows}</tbody></table></div>`;
+        }
+    );
+
     // Bold text
     html = html.replace(/\*\*(.*?)\*\*/g, '<strong class="text-white font-semibold">$1</strong>');
 
-    // Lists
-    html = html.replace(/^\s*-\s+(.*$)/gim, '<li class="text-neutral-300 ml-4 mb-2 list-disc">$1</li>');
+    // Ordered lists
+    html = html.replace(/^\d+\.\s+(.*$)/gim, '<li class="text-neutral-300 ml-4 mb-2 list-decimal">$1</li>');
+
+    // Unordered lists
+    html = html.replace(/^\s*[-*]\s+(.*$)/gim, '<li class="text-neutral-300 ml-4 mb-2 list-disc">$1</li>');
+
+    // Wrap consecutive list items
     html = html.replace(/(<li.*<\/li>)/gms, '<ul class="mb-6">$1</ul>');
 
     // Links
@@ -55,7 +78,7 @@ export function parseMarkdown(content: string) {
     const paragraphs = html.split(/\n\n+/);
     html = paragraphs.map(p => {
         const trimmed = p.trim();
-        if (trimmed.startsWith('<h') || trimmed.startsWith('<div') || trimmed.startsWith('<ul') || trimmed.startsWith('[[')) {
+        if (trimmed.startsWith('<h') || trimmed.startsWith('<div') || trimmed.startsWith('<ul') || trimmed.startsWith('<table') || trimmed.startsWith('[[')) {
             return p;
         }
         return `<p class="text-neutral-300 mb-6 leading-relaxed">${p.replace(/\n/g, ' ')}</p>`;

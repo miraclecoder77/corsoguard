@@ -16,11 +16,12 @@ interface RouteEntry {
 const BASE_URL = 'https://www.corsoguard.com';
 
 // ⚠️  Update this date every time you publish or modify content
-const SITE_LAST_UPDATED = '2026-06-09';
+const SITE_LAST_UPDATED = '2026-06-26';
 
 const staticRoutes: RouteEntry[] = [
   { url: '', priority: 1.0, changeFrequency: 'daily', lastmod: SITE_LAST_UPDATED },
   { url: '/growth', priority: 0.9, changeFrequency: 'weekly', lastmod: SITE_LAST_UPDATED },
+  { url: '/growth/methodology', priority: 0.8, changeFrequency: 'monthly', lastmod: SITE_LAST_UPDATED },
   { url: '/checklist', priority: 0.9, changeFrequency: 'weekly', lastmod: SITE_LAST_UPDATED },
   { url: '/age-converter', priority: 0.8, changeFrequency: 'monthly', lastmod: SITE_LAST_UPDATED },
   { url: '/harness', priority: 0.8, changeFrequency: 'monthly', lastmod: SITE_LAST_UPDATED },
