@@ -123,8 +123,8 @@ export default function Home() {
       <nav id="landing-navbar" className="sticky top-0 z-50 w-full backdrop-blur-xl bg-[#020617]/70 border-b border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-3 group">
-            <div className="p-2.5 rounded-xl bg-orange-500/10 border border-orange-500/25 group-hover:border-orange-500/50 transition-colors">
-              <Shield className="w-6 h-6 text-[#f97316]" />
+            <div className="p-1 rounded-xl bg-orange-500/10 border border-orange-500/25 group-hover:border-orange-500/50 transition-colors flex items-center justify-center">
+              <Image src="/logo.png" alt="CorsoGuard Logo" width={36} height={36} className="w-9 h-9 object-contain" />
             </div>
             <span className="font-montserrat font-extrabold text-2xl text-white tracking-wider">
               Corso<span className="text-[#f97316]">Guard</span>

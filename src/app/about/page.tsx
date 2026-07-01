@@ -1,6 +1,7 @@
 import { Shield, Award, Activity, Mail, ExternalLink } from "lucide-react";
 import { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata: Metadata = {
     title: "About CorsoGuard | Cane Corso Breed Resource",
@@ -14,7 +15,7 @@ export default function AboutPage() {
     return (
         <div className="min-h-screen p-8 pt-24 max-w-4xl mx-auto">
             <div className="text-center mb-16">
-                <Shield className="w-16 h-16 text-primary mx-auto mb-6" />
+                <Image src="/logo.png" alt="CorsoGuard Logo" width={80} height={80} className="w-20 h-20 object-contain mx-auto mb-6" />
                 <h1 className="text-5xl font-extrabold text-white mb-4">About CorsoGuard</h1>
                 <p className="text-xl text-neutral-400 max-w-2xl mx-auto">
                     Built by Cane Corso handlers, for Cane Corso owners. We combine practical breed experience with canine developmental science to create tools that actually help.

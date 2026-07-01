@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Shield } from "lucide-react";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -10,7 +11,7 @@ export default function Footer() {
           {/* Column 1 */}
           <div className="lg:col-span-4 space-y-4">
             <Link href="/" className="flex items-center space-x-3">
-              <Shield className="w-6 h-6 text-[#f97316]" />
+              <Image src="/logo.png" alt="CorsoGuard Logo" width={32} height={32} className="w-8 h-8 object-contain" />
               <span className="font-sans font-black text-xl text-white tracking-widest uppercase">
                 CORSO<span className="text-[#f97316]">GUARD</span>
               </span>

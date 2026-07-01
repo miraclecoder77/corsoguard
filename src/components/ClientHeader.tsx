@@ -4,6 +4,8 @@ import { useChecklist } from "@/hooks/useChecklist";
 import Link from "next/link";
 import { Shield } from "lucide-react";
 
+import Image from "next/image";
+
 export default function ClientHeader() {
     const { score, isLoaded } = useChecklist();
 
@@ -11,7 +13,7 @@ export default function ClientHeader() {
         <header className="sticky top-0 z-50 w-full backdrop-blur-xl border-b border-white/10 bg-black/60">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
                 <Link href="/" className="flex items-center space-x-2">
-                    <Shield className="w-6 h-6 text-primary" />
+                    <Image src="/logo.png" alt="CorsoGuard Logo" width={32} height={32} className="w-8 h-8 object-contain" />
                     <span className="font-extrabold text-xl text-white tracking-tight">
                         Corso<span className="text-primary">Guard</span>
                     </span>
