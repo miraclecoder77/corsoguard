@@ -17,8 +17,7 @@ export default function Home() {
       
       <style dangerouslySetInnerHTML={{ __html: `
         /* Hide global layouts header & footer specifically on the landing page */
-        header { display: none !important; }
-        footer { display: none !important; }
+        body.on-landing-page > header { display: none !important; }
 
         .font-montserrat {
           font-family: 'Montserrat', sans-serif;
@@ -86,6 +85,38 @@ export default function Home() {
         input[type="range"]::-webkit-slider-thumb:hover {
           transform: scale(1.2);
         }
+        .gender-active {
+          color: #f97316 !important;
+          text-shadow: 0 0 15px rgba(249, 115, 22, 0.6);
+          font-weight: 800 !important;
+          text-decoration: none !important;
+          border-bottom: none !important;
+        }
+        .gender-inactive {
+          color: #475569 !important;
+          text-shadow: none !important;
+          font-weight: 700 !important;
+          text-decoration: none !important;
+          border-bottom: none !important;
+        }
+        #gender-male-label, #gender-female-label {
+          text-decoration: none !important;
+          border-bottom: none !important;
+          outline: none !important;
+          box-shadow: none !important;
+        }
+        #gender-male-label:hover, #gender-female-label:hover {
+          text-decoration: none !important;
+          border-bottom: none !important;
+        }
+        @media (max-width: 480px) {
+          .score-text-full { display: none !important; }
+          .score-text-short { display: inline !important; }
+        }
+        @media (min-width: 481px) {
+          .score-text-full { display: inline !important; }
+          .score-text-short { display: none !important; }
+        }
       ` }} />
 
       {/* A. Navbar (Sticky & Glassmorphic) */}
@@ -107,9 +138,10 @@ export default function Home() {
               <Link href="/harness" className="hover:text-white transition-colors">Harness Sizing</Link>
               <Link href="/blog" className="hover:text-white transition-colors">Guides</Link>
             </div>
-            <div className="glassmorphism-orange px-4 py-2 rounded-full flex items-center space-x-3 text-sm">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#f97316] animate-pulse-glow"></span>
-              <span className="font-mono text-slate-300">Socialization Score:</span>
+            <div className="glassmorphism-orange px-3 py-1.5 sm:px-4 sm:py-2 rounded-full flex items-center space-x-2 sm:space-x-3 text-xs sm:text-sm">
+              <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-[#f97316] animate-pulse-glow"></span>
+              <span className="font-mono text-slate-300 score-text-full">Socialization Score:</span>
+              <span className="font-mono text-slate-300 score-text-short">Score:</span>
               <span className="font-montserrat font-black text-[#f97316]" id="nav-tracker-score">0%</span>
             </div>
           </div>
@@ -199,11 +231,11 @@ export default function Home() {
       <section id="interactive-widget" className="relative py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="absolute top-1/2 left-1/3 w-[300px] h-[300px] bg-orange-600/5 rounded-full blur-[80px] pointer-events-none z-0"></div>
         
-        <div className="glassmorphism rounded-3xl p-6 md:p-10 relative z-10 border border-white/10 overflow-hidden shadow-2xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        <div className="glassmorphism rounded-3xl p-5 sm:p-8 md:p-10 relative z-10 border border-white/10 overflow-hidden shadow-2xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
             
             {/* Left Side (Inputs) */}
-            <div className="lg:col-span-7 flex flex-col justify-between space-y-8">
+            <div className="lg:col-span-7 flex flex-col justify-between space-y-6 sm:space-y-8">
               <div>
                 <h2 className="font-montserrat text-2xl md:text-3xl font-extrabold text-white">
                   Quick Growth Estimate
@@ -240,18 +272,18 @@ export default function Home() {
                 </div>
 
                 {/* Gender Toggle */}
-                <div className="flex items-center justify-between py-3 border-t border-b border-white/5">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between py-4 border-t border-b border-white/5 gap-3">
                   <div>
-                    <label htmlFor="gender-toggle" className="text-sm font-bold text-slate-300 font-inter">Gender Designation</label>
+                    <label className="text-sm font-bold text-slate-300 font-inter">Gender Designation</label>
                     <p className="text-xs text-slate-500 font-inter mt-0.5">Influences final skeletal weight density</p>
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <span className="text-xs font-bold text-slate-400">Male</span>
+                  <div className="flex items-center space-x-3 self-start sm:self-auto">
+                    <span id="gender-male-label" className="text-xs font-bold gender-active transition-all duration-300 select-none cursor-pointer">Male</span>
                     <label className="relative inline-flex items-center cursor-pointer">
                       <input type="checkbox" id="gender-toggle" className="sr-only peer" />
-                      <div className="w-14 h-7 bg-slate-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[4px] after:left-[4px] after:bg-slate-300 after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-orange-600 peer-checked:after:bg-white"></div>
+                      <div className="w-14 h-7 bg-slate-950 border border-white/10 rounded-full relative transition-all duration-300 peer-focus:outline-none peer-checked:bg-orange-500/20 peer-checked:border-orange-500/30 after:content-[''] after:absolute after:top-[3px] after:left-[3px] after:w-5 after:h-5 after:rounded-full after:transition-all after:bg-[#f97316] after:shadow-[0_0_8px_rgba(249,115,22,0.6)] peer-checked:after:translate-x-7 peer-checked:after:bg-white peer-checked:after:shadow-[0_0_8px_rgba(255,255,255,0.6)]"></div>
                     </label>
-                    <span className="text-xs font-bold text-[#f97316] font-mono" id="gender-text-display">Male</span>
+                    <span id="gender-female-label" className="text-xs font-bold gender-inactive transition-all duration-300 select-none cursor-pointer">Female</span>
                   </div>
                 </div>
               </div>
@@ -264,7 +296,7 @@ export default function Home() {
             </div>
 
             {/* Right Side (Outputs) */}
-            <div className="lg:col-span-5 bg-slate-950/60 rounded-2xl p-6 md:p-8 flex flex-col justify-between border border-white/5">
+            <div className="lg:col-span-5 bg-slate-950/40 backdrop-blur-md rounded-2xl p-5 sm:p-8 flex flex-col justify-between border border-white/5 mt-4 lg:mt-0">
               <div className="space-y-6">
                 <div>
                   <span className="text-xs font-bold tracking-widest text-[#f97316] uppercase font-montserrat">Estimated Adult Weight</span>
@@ -450,71 +482,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* E. Footer */}
-      <footer id="landing-footer" className="relative z-10 border-t border-white/5 bg-[#020617] pt-16 pb-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-6 mb-16">
-            
-            {/* Column 1 */}
-            <div className="lg:col-span-4 space-y-4">
-              <Link href="/" className="flex items-center space-x-3">
-                <Shield className="w-6 h-6 text-[#f97316]" />
-                <span className="font-montserrat font-black text-xl text-white tracking-widest">
-                  CORSO<span className="text-[#f97316]">GUARD</span>
-                </span>
-              </Link>
-              <p className="text-slate-400 font-inter text-sm max-w-sm leading-relaxed">
-                The elite, analytics-backed dashboard for Cane Corso owners. Secure high-converting tools, premium blueprints, and dynamic calculations.
-              </p>
-            </div>
 
-            {/* Column 2 */}
-            <div className="lg:col-span-2 space-y-4">
-              <h4 className="font-montserrat font-bold text-xs uppercase tracking-widest text-[#f97316]">Tools</h4>
-              <ul className="space-y-2.5 text-sm font-inter text-slate-400">
-                <li><Link href="/growth" className="hover:text-white transition-colors">Growth Predictor</Link></li>
-                <li><Link href="/checklist" className="hover:text-white transition-colors">100-Item Checklist</Link></li>
-                <li><Link href="/age-converter" className="hover:text-white transition-colors">Age Converter</Link></li>
-                <li><Link href="/harness" className="hover:text-white transition-colors">Harness Sizing</Link></li>
-                <li><Link href="/lifetime-cost" className="hover:text-white transition-colors">Cost Calculator</Link></li>
-              </ul>
-            </div>
-
-            {/* Column 3 */}
-            <div className="lg:col-span-3 space-y-4">
-              <h4 className="font-montserrat font-bold text-xs uppercase tracking-widest text-[#f97316]">Legal Resources</h4>
-              <ul className="space-y-2.5 text-sm font-inter text-slate-400">
-                <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy & Cookies</Link></li>
-                <li><Link href="/disclosure" className="hover:text-white transition-colors">Affiliate Disclosure</Link></li>
-                <li><Link href="/about" className="hover:text-white transition-colors">Terms of Service</Link></li>
-              </ul>
-            </div>
-
-            {/* Column 4 */}
-            <div className="lg:col-span-3 space-y-4">
-              <h4 className="font-montserrat font-bold text-xs uppercase tracking-widest text-[#f97316]">Resources</h4>
-              <ul className="space-y-2.5 text-sm font-inter text-slate-400">
-                <li><Link href="/blog" className="hover:text-white transition-colors">Tactical Blog Guides</Link></li>
-                <li><Link href="/about" className="hover:text-white transition-colors">About Team</Link></li>
-                <li><a href="mailto:hello@corsoguard.com" className="hover:text-white transition-colors">Contact Support</a></li>
-              </ul>
-            </div>
-
-          </div>
-
-          <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 font-inter gap-4">
-            <p className="hover:text-[#f97316] transition-colors duration-300 cursor-pointer">
-              &copy; {new Date().getFullYear()} CorsoGuard. All rights reserved. Premium Cane Corso Resources.
-            </p>
-            <div className="flex space-x-6">
-              <span className="hover:text-[#f97316] cursor-pointer transition-colors duration-300">Facebook</span>
-              <span className="hover:text-[#f97316] cursor-pointer transition-colors duration-300">Instagram</span>
-              <span className="hover:text-[#f97316] cursor-pointer transition-colors duration-300">Twitter</span>
-            </div>
-          </div>
-
-        </div>
-      </footer>
 
       {/* Script to implement the interactive dynamic slider logic client-side */}
       <script dangerouslySetInnerHTML={{ __html: `
@@ -523,7 +491,6 @@ export default function Home() {
             const ageSlider = document.getElementById("age-slider");
             const ageDisplay = document.getElementById("age-value-display");
             const genderToggle = document.getElementById("gender-toggle");
-            const genderText = document.getElementById("gender-text-display");
             const adultWeightOutput = document.getElementById("adult-weight-output");
             const currentWeightOutput = document.getElementById("current-weight-output");
 
@@ -570,12 +537,30 @@ export default function Home() {
               const isFemale = genderToggle ? genderToggle.checked : false;
               
               if (ageDisplay) ageDisplay.textContent = age + (age === 1 ? " Month" : " Months");
-              if (genderText) genderText.textContent = isFemale ? "Female" : "Male";
+              
+              const maleLabel = document.getElementById("gender-male-label");
+              const femaleLabel = document.getElementById("gender-female-label");
               
               if (isFemale) {
+                if (femaleLabel) {
+                  femaleLabel.classList.remove("gender-inactive");
+                  femaleLabel.classList.add("gender-active");
+                }
+                if (maleLabel) {
+                  maleLabel.classList.remove("gender-active");
+                  maleLabel.classList.add("gender-inactive");
+                }
                 if (adultWeightOutput) adultWeightOutput.textContent = "95 - 105 lbs";
                 if (currentWeightOutput) currentWeightOutput.textContent = femaleWeights[age] || "95 - 105 lbs";
               } else {
+                if (maleLabel) {
+                  maleLabel.classList.remove("gender-inactive");
+                  maleLabel.classList.add("gender-active");
+                }
+                if (femaleLabel) {
+                  femaleLabel.classList.remove("gender-active");
+                  femaleLabel.classList.add("gender-inactive");
+                }
                 if (adultWeightOutput) adultWeightOutput.textContent = "115 - 125 lbs";
                 if (currentWeightOutput) currentWeightOutput.textContent = maleWeights[age] || "115 - 125 lbs";
               }
@@ -589,17 +574,65 @@ export default function Home() {
                 genderToggle.removeEventListener("change", update);
                 genderToggle.addEventListener("change", update);
               }
+
+              // Add explicit click handlers for the text labels to make clicking them toggle the switch
+              const maleLabel = document.getElementById("gender-male-label");
+              const femaleLabel = document.getElementById("gender-female-label");
+              if (maleLabel && genderToggle) {
+                maleLabel.style.cursor = "pointer";
+                const handleMaleClick = () => {
+                  if (genderToggle.checked) {
+                    genderToggle.checked = false;
+                    update();
+                  }
+                };
+                maleLabel.removeEventListener("click", handleMaleClick);
+                maleLabel.addEventListener("click", handleMaleClick);
+              }
+              if (femaleLabel && genderToggle) {
+                femaleLabel.style.cursor = "pointer";
+                const handleFemaleClick = () => {
+                  if (!genderToggle.checked) {
+                    genderToggle.checked = true;
+                    update();
+                  }
+                };
+                femaleLabel.removeEventListener("click", handleFemaleClick);
+                femaleLabel.addEventListener("click", handleFemaleClick);
+              }
+
               update();
             }
           }
 
-          if (document.readyState === "loading") {
-            document.addEventListener("DOMContentLoaded", initCalculator);
-          } else {
-            initCalculator();
+          function checkRoute() {
+            try {
+              if (window.location.pathname === '/') {
+                if (!document.body.classList.contains('on-landing-page')) {
+                  document.body.classList.add('on-landing-page');
+                }
+              } else {
+                if (document.body.classList.contains('on-landing-page')) {
+                  document.body.classList.remove('on-landing-page');
+                }
+              }
+            } catch (err) {
+              console.error(err);
+            }
           }
-          window.addEventListener("load", initCalculator);
-          setInterval(initCalculator, 1000);
+
+          function runAll() {
+            initCalculator();
+            checkRoute();
+          }
+
+          if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", runAll);
+          } else {
+            runAll();
+          }
+          window.addEventListener("load", runAll);
+          setInterval(runAll, 500);
         })();
       ` }} />
 

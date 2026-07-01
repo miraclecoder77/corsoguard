@@ -25,13 +25,13 @@ export default function AboutPage() {
                 <div>
                     <h2 className="text-3xl font-bold text-white mb-4">Who We Are</h2>
                     <p className="text-neutral-300 mb-4 leading-relaxed">
-                        CorsoGuard was founded by Cane Corso owners who grew frustrated with the generic large-breed advice that dominates dog information sites. Advice designed for a 40-lb Labrador is not the same advice a 120-lb working guardian breed needs — and applying it is how Corsos end up overweight, under-structured, and behaviourally mismanaged.
+                        CorsoGuard was founded by Cane Corso owners who grew frustrated with the generic large-breed advice that dominates dog information sites. Advice designed for a 40-lb Labrador is not the same advice a 120-lb working guardian breed needs  and applying it is how Corsos end up overweight, under-structured, and behaviourally mismanaged.
                     </p>
                     <p className="text-neutral-300 mb-4 leading-relaxed">
                         We focus exclusively on the Cane Corso. Our tools are built on established giant-breed developmental science, breed-specific orthopedic research, and hands-on experience managing Corsos through every stage from 8-week puppy to senior guardian.
                     </p>
                     <p className="text-neutral-300 leading-relaxed">
-                        Everything on this site — the growth algorithm, the feeding data, the socialization protocol — is derived from sources we would trust for our own dogs, not from generic content farms.
+                        Everything on this site,the growth algorithm, the feeding data, the socialization protocol  is derived from sources we would trust for our own dogs, not from generic content farms.
                     </p>
 
                     <h3 className="text-xl font-bold text-white mt-10 mb-4">Our Content Standards</h3>
@@ -46,7 +46,7 @@ export default function AboutPage() {
                         </li>
                         <li className="flex gap-3">
                             <span className="text-primary mt-1">▸</span>
-                            <span><strong className="text-white">Health content is conservative.</strong> For any health, nutrition, or veterinary guidance on this site, we recommend consulting your veterinarian before acting on it. Our content provides context and questions to ask — not a substitute for a vet relationship.</span>
+                            <span><strong className="text-white">Health content is conservative.</strong> For any health, nutrition, or veterinary guidance on this site, we recommend consulting your veterinarian before acting on it. Our content provides context and questions to ask, not a substitute for a vet relationship.</span>
                         </li>
                     </ul>
                 </div>
