@@ -213,7 +213,7 @@ export default function Home() {
                   <div>
                     <div className="flex items-center space-x-2">
                       <span className="w-2.5 h-2.5 rounded-full bg-[#f97316] animate-pulse"></span>
-                      <h3 className="font-montserrat font-black text-sm uppercase tracking-widest text-white">Elite Guardian</h3>
+                      <p className="font-montserrat font-black text-sm uppercase tracking-widest text-white">Elite Guardian</p>
                     </div>
                     <p className="text-slate-400 text-xs mt-0.5 font-inter">Unleash Full Potential</p>
                   </div>
@@ -262,7 +262,7 @@ export default function Home() {
                     defaultValue="4" 
                     className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-[#f97316]"
                   />
-                  <div className="flex justify-between text-[10px] text-slate-500 font-mono">
+                  <div className="flex justify-between text-[10px] text-slate-400 font-mono">
                     <span>1 MO</span>
                     <span>6 MO</span>
                     <span>12 MO</span>
@@ -275,12 +275,12 @@ export default function Home() {
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between py-4 border-t border-b border-white/5 gap-3">
                   <div>
                     <label className="text-sm font-bold text-slate-300 font-inter">Gender Designation</label>
-                    <p className="text-xs text-slate-500 font-inter mt-0.5">Influences final skeletal weight density</p>
+                    <p className="text-xs text-slate-400 font-inter mt-0.5">Influences final skeletal weight density</p>
                   </div>
                   <div className="flex items-center space-x-3 self-start sm:self-auto">
                     <span id="gender-male-label" className="text-xs font-bold gender-active transition-all duration-300 select-none cursor-pointer">Male</span>
                     <label className="relative inline-flex items-center cursor-pointer">
-                      <input type="checkbox" id="gender-toggle" className="sr-only peer" />
+                      <input type="checkbox" id="gender-toggle" className="sr-only peer" aria-label="Gender selection toggle" />
                       <div className="w-14 h-7 bg-slate-950 border border-white/10 rounded-full relative transition-all duration-300 peer-focus:outline-none peer-checked:bg-orange-500/20 peer-checked:border-orange-500/30 after:content-[''] after:absolute after:top-[3px] after:left-[3px] after:w-5 after:h-5 after:rounded-full after:transition-all after:bg-[#f97316] after:shadow-[0_0_8px_rgba(249,115,22,0.6)] peer-checked:after:translate-x-7 peer-checked:after:bg-white peer-checked:after:shadow-[0_0_8px_rgba(255,255,255,0.6)]"></div>
                     </label>
                     <span id="gender-female-label" className="text-xs font-bold gender-inactive transition-all duration-300 select-none cursor-pointer">Female</span>
@@ -289,7 +289,7 @@ export default function Home() {
               </div>
 
               <div>
-                <p className="text-[11px] text-slate-500 leading-normal font-inter">
+                <p className="text-[11px] text-slate-400 leading-normal font-inter">
                   *Calculations are models based on standard Cane Corso growth vectors. Actual results may vary based on health, nutrition, lineage, and exercise protocols.
                 </p>
               </div>

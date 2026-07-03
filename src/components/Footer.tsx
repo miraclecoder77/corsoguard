@@ -55,7 +55,7 @@ export default function Footer() {
 
         </div>
 
-        <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
           <p className="hover:text-[#f97316] transition-colors duration-300 cursor-pointer">
             &copy; {new Date().getFullYear()} CorsoGuard. All rights reserved. Premium Cane Corso Resources.
           </p>
