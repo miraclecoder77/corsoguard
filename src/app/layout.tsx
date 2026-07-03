@@ -110,6 +110,25 @@ export default function RootLayout({
           data-key="BDjqtpbYs2SPMxCnUef4ew"
           strategy="lazyOnload"
         />
+
+        {/* Google Analytics */}
+        <Script
+          id="gtag-src"
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-KBM0RGLCF6"
+        />
+        <Script
+          id="gtag-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-KBM0RGLCF6');
+            `,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
