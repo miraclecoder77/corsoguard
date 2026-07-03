@@ -13,17 +13,16 @@ export default function Home() {
   return (
     <div className="relative min-h-screen text-slate-100 bg-[#020617] overflow-x-hidden font-sans">
       {/* Dynamic Font Import & CSS Styles override to hide default layouts and style everything */}
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet" />
       
       <style dangerouslySetInnerHTML={{ __html: `
         /* Hide global layouts header & footer specifically on the landing page */
         body.on-landing-page > header { display: none !important; }
 
         .font-montserrat {
-          font-family: 'Montserrat', sans-serif;
+          font-family: var(--font-montserrat), sans-serif;
         }
         .font-inter {
-          font-family: 'Inter', sans-serif;
+          font-family: var(--font-inter), sans-serif;
         }
 
         .glassmorphism {
@@ -203,6 +202,7 @@ export default function Home() {
                     alt="Majestic Cane Corso Guardian Dog" 
                     fill 
                     priority
+                    sizes="(max-width: 768px) 100vw, 400px"
                     className="object-cover object-[center_35%] scale-100 group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>

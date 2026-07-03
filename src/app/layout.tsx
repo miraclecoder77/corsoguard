@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Montserrat, Inter } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 import ClientHeader from "@/components/ClientHeader";
@@ -14,6 +14,18 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  subsets: ["latin"],
+  weight: ["700", "800", "900"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -86,7 +98,7 @@ export default function RootLayout({
         <Script
           id="adsense"
           async
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3995859754454351`}
           crossOrigin="anonymous"
         />
@@ -96,7 +108,7 @@ export default function RootLayout({
           id="ahrefs-analytics"
           src="https://analytics.ahrefs.com/analytics.js"
           data-key="BDjqtpbYs2SPMxCnUef4ew"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
         <script
           type="application/ld+json"
@@ -129,7 +141,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground min-h-screen flex flex-col`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${montserrat.variable} antialiased bg-background text-foreground min-h-screen flex flex-col`}
       >
         <ClientHeader />
         <main className="flex-1">

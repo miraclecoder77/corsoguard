@@ -39,7 +39,7 @@ export default function Footer() {
             <ul className="space-y-2.5 text-sm text-slate-400">
               <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy & Cookies</Link></li>
               <li><Link href="/disclosure" className="hover:text-white transition-colors">Affiliate Disclosure</Link></li>
-              <li><Link href="/about" className="hover:text-white transition-colors">Terms of Service</Link></li>
+              {/* <li><Link href="/about" className="hover:text-white transition-colors">Terms of Service</Link></li> */}
             </ul>
           </div>
 
@@ -60,7 +60,9 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} CorsoGuard. All rights reserved. Premium Cane Corso Resources.
           </p>
           <div className="flex space-x-6">
-            <span className="hover:text-[#f97316] cursor-pointer transition-colors duration-300">Facebook</span>
+             <a href="https://www.facebook.com/profile.php?id=61583701781163&_rdc=1&_rdr#" target="_blank" rel="noopener noreferrer">
+                 <span className="hover:text-[#f97316] cursor-pointer transition-colors  duration-300">Facebook</span>
+             </a>
             <span className="hover:text-[#f97316] cursor-pointer transition-colors duration-300">Instagram</span>
             <span className="hover:text-[#f97316] cursor-pointer transition-colors duration-300">Twitter</span>
           </div>
