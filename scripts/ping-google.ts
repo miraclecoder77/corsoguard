@@ -1,11 +1,15 @@
 /**
  * Google Indexing API Ping Script
+ *
+ * ⚠️  Google's Indexing API only officially supports JobPosting and
+ * BroadcastEvent pages. Blog URLs submitted here are ignored. Prefer Search
+ * Console URL Inspection → "Request indexing".
  * 
  * Usage: 
  * 1. Obtain a service account JSON from Google Cloud Console.
  * 2. Save it as 'google-indexing-key.json' in the root directory.
  * 3. Install 'googleapis' package: npm install googleapis
- * 4. Run: npx ts-node scripts/ping-google.ts https://corsoguard.com/blog/your-new-post
+ * 4. Run: npx ts-node scripts/ping-google.ts https://www.corsoguard.com/blog/your-new-post
  */
 
 const { google } = require('googleapis');

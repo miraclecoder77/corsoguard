@@ -15,21 +15,49 @@ interface RouteEntry {
 
 const BASE_URL = 'https://www.corsoguard.com';
 
-// ⚠️  Update this date every time you publish or modify content
-const SITE_LAST_UPDATED = '2026-06-26';
+const postsDir = path.join(process.cwd(), 'src/content/posts');
 
-const staticRoutes: RouteEntry[] = [
-  { url: '', priority: 1.0, changeFrequency: 'daily', lastmod: SITE_LAST_UPDATED },
-  { url: '/growth', priority: 0.9, changeFrequency: 'weekly', lastmod: SITE_LAST_UPDATED },
-  { url: '/growth/methodology', priority: 0.8, changeFrequency: 'monthly', lastmod: SITE_LAST_UPDATED },
-  { url: '/checklist', priority: 0.9, changeFrequency: 'weekly', lastmod: SITE_LAST_UPDATED },
-  { url: '/age-converter', priority: 0.8, changeFrequency: 'monthly', lastmod: SITE_LAST_UPDATED },
-  { url: '/harness', priority: 0.8, changeFrequency: 'monthly', lastmod: SITE_LAST_UPDATED },
-  { url: '/lifetime-cost', priority: 0.8, changeFrequency: 'monthly', lastmod: SITE_LAST_UPDATED },
-  { url: '/blog', priority: 0.9, changeFrequency: 'daily', lastmod: SITE_LAST_UPDATED },
-  { url: '/about', priority: 0.5, changeFrequency: 'monthly', lastmod: SITE_LAST_UPDATED },
-  { url: '/disclosure', priority: 0.3, changeFrequency: 'monthly', lastmod: SITE_LAST_UPDATED },
-  { url: '/privacy', priority: 0.3, changeFrequency: 'monthly', lastmod: SITE_LAST_UPDATED },
+/**
+ * Slugs that are 301'd elsewhere in next.config.ts. A sitemap must only list
+ * URLs that return 200 — a redirecting entry wastes crawl budget and is
+ * reported as an error in Search Console.
+ */
+const REDIRECTED_SLUGS = new Set(['how-much-to-feed-cane-corso-puppy']);
+
+function toIsoDate(d: Date): string {
+  return d.toISOString().split('T')[0]; // YYYY-MM-DD is preferred by Google
+}
+
+/**
+ * Derived from the most recently modified post rather than hardcoded, so the
+ * static routes stop advertising a stale lastmod whenever content ships.
+ */
+function siteLastUpdated(): string {
+  let newest = 0;
+  try {
+    for (const fileName of fs.readdirSync(postsDir)) {
+      if (!fileName.endsWith('.md')) continue;
+      const { mtimeMs } = fs.statSync(path.join(postsDir, fileName));
+      if (mtimeMs > newest) newest = mtimeMs;
+    }
+  } catch {
+    // fall through to build time
+  }
+  return toIsoDate(newest ? new Date(newest) : new Date());
+}
+
+const staticRoutes: Omit<RouteEntry, 'lastmod'>[] = [
+  { url: '', priority: 1.0, changeFrequency: 'daily' },
+  { url: '/growth', priority: 0.9, changeFrequency: 'weekly' },
+  { url: '/growth/methodology', priority: 0.8, changeFrequency: 'monthly' },
+  { url: '/checklist', priority: 0.9, changeFrequency: 'weekly' },
+  { url: '/age-converter', priority: 0.8, changeFrequency: 'monthly' },
+  { url: '/harness', priority: 0.8, changeFrequency: 'monthly' },
+  { url: '/lifetime-cost', priority: 0.8, changeFrequency: 'monthly' },
+  { url: '/blog', priority: 0.9, changeFrequency: 'daily' },
+  { url: '/about', priority: 0.5, changeFrequency: 'monthly' },
+  { url: '/disclosure', priority: 0.3, changeFrequency: 'monthly' },
+  { url: '/privacy', priority: 0.3, changeFrequency: 'monthly' },
 ];
 
 function escapeXml(str: string): string {
@@ -58,6 +86,8 @@ function buildUrlEntry(
 
 export async function GET() {
   try {
+    const lastUpdated = siteLastUpdated();
+
     let xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
 
@@ -65,24 +95,24 @@ export async function GET() {
     for (const route of staticRoutes) {
       xml += buildUrlEntry(
         `${BASE_URL}${route.url}`,
-        route.lastmod ?? SITE_LAST_UPDATED,
+        lastUpdated,
         route.changeFrequency,
         route.priority
       );
     }
 
     // Dynamic blog routes
-    const postsDirectory = path.join(process.cwd(), 'src/content/posts');
-    if (fs.existsSync(postsDirectory)) {
-      const fileNames = fs.readdirSync(postsDirectory);
+    if (fs.existsSync(postsDir)) {
+      const fileNames = fs.readdirSync(postsDir);
       for (const fileName of fileNames.filter((f) => f.endsWith('.md'))) {
         const slug = fileName.replace(/\.md$/, '');
-        const fullPath = path.join(postsDirectory, fileName);
-        const { mtime } = fs.statSync(fullPath);
+        if (REDIRECTED_SLUGS.has(slug)) continue;
+
+        const { mtime } = fs.statSync(path.join(postsDir, fileName));
 
         xml += buildUrlEntry(
           `${BASE_URL}/blog/${slug}`,
-          mtime.toISOString().split('T')[0], // YYYY-MM-DD is preferred by Google
+          toIsoDate(mtime),
           'weekly',
           0.7
         );

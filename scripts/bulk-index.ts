@@ -1,6 +1,16 @@
 /**
  * Bulk Indexing Maintenance Script
- * 
+ *
+ * ⚠️  READ BEFORE RUNNING
+ * Google's Indexing API is only officially supported for JobPosting and
+ * BroadcastEvent pages. Submitting blog or tool URLs through it does not get
+ * them indexed — Google ignores those notifications. Use Search Console's
+ * URL Inspection → "Request indexing" instead, and rely on the sitemap.
+ *
+ * This script previously submitted apex (corsoguard.com) URLs while the sitemap
+ * declared www, which is how several pages ended up indexed on the wrong host.
+ * The host is now aligned, but the script remains a no-op in practice.
+ *
  * Usage:
  * 1. Ensure 'google-indexing-key.json' is in the root directory.
  * 2. Run: npx ts-node scripts/bulk-index.ts
@@ -10,7 +20,7 @@ import { google } from 'googleapis';
 import fs from 'fs';
 import path from 'path';
 
-const baseUrl = 'https://corsoguard.com';
+const baseUrl = 'https://www.corsoguard.com'; // must match the canonical host in sitemap.xml
 const keyPath = path.join(process.cwd(), 'google-indexing-key.json');
 const postsDirectory = path.join(process.cwd(), 'src', 'content', 'posts');
 
@@ -24,6 +34,7 @@ async function getRoutes() {
   const staticRoutes = [
     '',
     '/growth',
+    '/growth/methodology',
     '/checklist',
     '/age-converter',
     '/harness',
