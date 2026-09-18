@@ -27,7 +27,7 @@ export default function PrivacyPage() {
 
             <h2 className="text-2xl font-bold text-white mt-8 mb-4">4. Contact Us</h2>
             <p className="text-neutral-300">
-                If you have questions about this privacy policy, contact us at privacy@corsoguard.example.com.
+                If you have questions about this privacy policy, contact us at hello@corsoguard.com.
             </p>
         </div>
     );

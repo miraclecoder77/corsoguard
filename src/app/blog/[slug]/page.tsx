@@ -107,9 +107,13 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         <div className="min-h-screen bg-black text-white">
             <StructuredData data={breadcrumbSchema} />
             <SchemaBridge slug={slug} metadata={metadata} baseUrl={baseUrl} />
-            {/* FAQPage schema from frontmatter faqs field — used on articles with structured FAQ blocks */}
-            {(metadata as any).faqs && Array.isArray((metadata as any).faqs) && (
-                <FAQSchema items={(metadata as any).faqs} />
+            {/* FAQPage schema from the frontmatter `faqs` field. Add a block like:
+                  faqs:
+                    - question: "..."
+                      answer: "..."
+                to any post to emit FAQ rich-result markup. */}
+            {Array.isArray(metadata.faqs) && metadata.faqs.length > 0 && (
+                <FAQSchema items={metadata.faqs} />
             )}
 
             {/* Hero Section */}

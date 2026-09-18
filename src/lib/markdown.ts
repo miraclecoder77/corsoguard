@@ -1,4 +1,9 @@
 
+export interface FAQItem {
+    question: string;
+    answer: string;
+}
+
 export interface BlogPostMetadata {
     title: string;
     description: string;
@@ -8,27 +13,98 @@ export interface BlogPostMetadata {
     image: string;
     category: string;
     readTime: string;
+    faqs: FAQItem[];
+}
+
+// Frontmatter values are commonly wrapped in quotes so that titles containing a
+// colon survive YAML parsing. Those quotes are delimiters, not content — leaving
+// them in place puts literal `"` characters into <title> and meta description.
+function unquote(value: string): string {
+    const trimmed = value.trim();
+    if (trimmed.length >= 2) {
+        const first = trimmed[0];
+        const last = trimmed[trimmed.length - 1];
+        if ((first === '"' && last === '"') || (first === "'" && last === "'")) {
+            return trimmed.slice(1, -1).replace(/\\"/g, '"');
+        }
+    }
+    return trimmed;
+}
+
+/**
+ * Minimal frontmatter reader. Supports `key: value` scalars plus the nested
+ * list-of-maps shape used by `faqs`:
+ *
+ *   faqs:
+ *     - question: "..."
+ *       answer: "..."
+ */
+function parseFrontmatter(yaml: string): Partial<BlogPostMetadata> {
+    const metadata: Record<string, unknown> = {};
+    const lines = yaml.split('\n');
+
+    for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+        if (!line.trim() || line.trim().startsWith('#')) continue;
+        // Only top-level keys start a new field; indented lines belong to a block.
+        if (/^\s/.test(line)) continue;
+
+        const separator = line.indexOf(':');
+        if (separator === -1) continue;
+
+        const key = line.slice(0, separator).trim();
+        const inlineValue = line.slice(separator + 1).trim();
+
+        if (inlineValue) {
+            metadata[key] = unquote(inlineValue);
+            continue;
+        }
+
+        // Empty value → gather the indented block that follows.
+        const block: string[] = [];
+        while (i + 1 < lines.length && (/^\s+\S/.test(lines[i + 1]) || !lines[i + 1].trim())) {
+            block.push(lines[++i]);
+        }
+        const items = parseListOfMaps(block);
+        if (items.length) metadata[key] = items;
+    }
+
+    return metadata as Partial<BlogPostMetadata>;
+}
+
+function parseListOfMaps(block: string[]): Record<string, string>[] {
+    const items: Record<string, string>[] = [];
+    let current: Record<string, string> | null = null;
+
+    for (const raw of block) {
+        if (!raw.trim()) continue;
+        const isNewItem = /^\s*-\s/.test(raw);
+        const body = raw.replace(/^\s*-\s*/, '').trim();
+        const separator = body.indexOf(':');
+        if (separator === -1) continue;
+
+        if (isNewItem) {
+            current = {};
+            items.push(current);
+        }
+        if (!current) continue;
+
+        current[body.slice(0, separator).trim()] = unquote(body.slice(separator + 1));
+    }
+
+    return items;
 }
 
 export function parseMarkdown(content: string) {
     const frontmatterRegex = /^---\s*\n([\s\S]*?)\n---\s*\n/;
     const match = content.match(frontmatterRegex);
-    
+
     let metadata: Partial<BlogPostMetadata> = {};
     let markdownContent = content;
 
     if (match) {
-        const yaml = match[1];
         markdownContent = content.replace(frontmatterRegex, '');
-        
-        yaml.split('\n').forEach(line => {
-            const [key, ...value] = line.split(':');
-            if (key && value.length) {
-                const k = key.trim() as keyof BlogPostMetadata;
-                const v = value.join(':').trim();
-                metadata[k] = v;
-            }
-        });
+        metadata = parseFrontmatter(match[1]);
     }
 
     // Basic markdown to HTML conversion

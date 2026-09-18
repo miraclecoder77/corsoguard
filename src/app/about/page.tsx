@@ -137,7 +137,6 @@ export default function AboutPage() {
                             "contactType": "editorial"
                         },
                         "sameAs": [
-                            "https://twitter.com/corsoguard",
                             "https://instagram.com/corsoguard"
                         ],
                         "knowsAbout": [

@@ -73,9 +73,14 @@ export const metadata: Metadata = {
     title: "CorsoGuard | Tactical Cane Corso Toolkit",
     description: "The ultimate tactical toolkit for Cane Corso owners.",
     images: ["/baby-corso.png"],
-    creator: "@corsoguard",
+    // `creator` intentionally omitted: @corsoguard is not a registered account.
   },
   manifest: "/site.webmanifest",
+  // Set GOOGLE_SITE_VERIFICATION in the Vercel project env to emit the
+  // Search Console verification tag. Omitted entirely when unset.
+  ...(process.env.GOOGLE_SITE_VERIFICATION
+    ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } }
+    : {}),
 };
 
 export default function RootLayout({
@@ -86,14 +91,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
-        {/*
-          OWNER ACTION REQUIRED:
-          Replace the content value below with your real Google Search Console
-          verification code, then redeploy. Do NOT leave it blank or as a placeholder.
-          Get your code at: https://search.google.com/search-console
-        */}
-        {/* <meta name="google-site-verification" content="YOUR_REAL_CODE_HERE" /> */}
-
         {/* AdSense Script */}
         <Script
           id="adsense"
@@ -139,8 +136,8 @@ export default function RootLayout({
                 "name": "CorsoGuard",
                 "url": "https://www.corsoguard.com",
                 "logo": "https://www.corsoguard.com/logo.png",
+                // Only live, verified profiles — a 404ing sameAs is a negative signal.
                 "sameAs": [
-                  "https://twitter.com/corsoguard",
                   "https://instagram.com/corsoguard"
                 ]
               },

@@ -2,7 +2,7 @@
 // to Googlebot's initial HTML pass and all AI crawlers (GPTBot, ClaudeBot, PerplexityBot).
 
 import StructuredData from './StructuredData';
-import { authorConfig } from '@/config/author';
+import { publisherConfig, namedAuthor, medicalReviewer } from '@/config/author';
 
 interface SchemaBridgeProps {
   slug: string;
@@ -16,6 +16,9 @@ interface SchemaBridgeProps {
  * Server-rendered. Automatically detects page intent based on slug
  * and injects the most relevant Google-friendly schema markup.
  * All schema is output as static HTML — no client-side hydration required.
+ *
+ * Every claim emitted here must be true. Nodes that depend on a real person
+ * (author, medical reviewer) are omitted entirely until one is configured.
  */
 export default function SchemaBridge({ slug, metadata, baseUrl }: SchemaBridgeProps) {
   const schemas: any[] = [];
@@ -28,24 +31,38 @@ export default function SchemaBridge({ slug, metadata, baseUrl }: SchemaBridgePr
   const dateModified = metadata.dateModified || datePublished;
 
   // 1. Author and Organisation References
-  const authorNode = {
-    '@type': 'Person',
-    'name': authorConfig.name,
-    'jobTitle': authorConfig.jobTitle,
-    'url': authorConfig.url,
-    'description': authorConfig.description,
-    'knowsAbout': authorConfig.knowsAbout,
-    'sameAs': authorConfig.sameAs,
-  };
-
   const publisherNode = {
     '@type': 'Organization',
-    'name': 'CorsoGuard',
+    'name': publisherConfig.name,
+    'url': publisherConfig.url,
     'logo': {
       '@type': 'ImageObject',
-      'url': `${baseUrl}/logo.png`,
+      'url': publisherConfig.logo,
     },
   };
+
+  // Attribute to a named person only when one genuinely exists; otherwise the
+  // organisation is the author. Both are valid schema.org — a fabricated Person
+  // with a 404 photo is not.
+  const authorNode = namedAuthor
+    ? {
+        '@type': 'Person',
+        'name': namedAuthor.name,
+        'jobTitle': namedAuthor.jobTitle,
+        'url': namedAuthor.url,
+        'image': namedAuthor.image,
+        'description': namedAuthor.description,
+        'knowsAbout': publisherConfig.knowsAbout,
+        'sameAs': namedAuthor.sameAs,
+      }
+    : {
+        '@type': 'Organization',
+        'name': publisherConfig.name,
+        'url': publisherConfig.url,
+        'description': publisherConfig.description,
+        'knowsAbout': publisherConfig.knowsAbout,
+        'sameAs': publisherConfig.sameAs,
+      };
 
   // 2. Detection Logic
 
@@ -78,28 +95,37 @@ export default function SchemaBridge({ slug, metadata, baseUrl }: SchemaBridgePr
     slug.includes('lifespan') ||
     slug.includes('gdv')
   ) {
-    schemas.push({
-      '@context': 'https://schema.org',
-      '@type': 'MedicalWebPage',
-      'name': metadata.title,
-      'description': metadata.description,
-      'lastReviewed': dateModified,
-      'reviewedBy': authorNode,
-      'medicalAudience': {
-        '@type': 'MedicalAudience',
-        'audienceType': 'Dog Owners',
-      },
-      'relevantSpecialty': {
-        '@type': 'MedicalSpecialty',
-        'name': 'Veterinary Medicine',
-      },
-      'mainEntityOfPage': {
-        '@type': 'WebPage',
-        '@id': fullUrl,
-      },
-    });
+    // MedicalWebPage asserts clinical review. Emit it only when a real reviewer
+    // is configured — otherwise fall through to BlogPosting alone.
+    if (medicalReviewer) {
+      schemas.push({
+        '@context': 'https://schema.org',
+        '@type': 'MedicalWebPage',
+        'name': metadata.title,
+        'description': metadata.description,
+        'lastReviewed': dateModified,
+        'reviewedBy': {
+          '@type': 'Person',
+          'name': medicalReviewer.name,
+          'honorificSuffix': medicalReviewer.honorificSuffix,
+          'url': medicalReviewer.url,
+        },
+        'medicalAudience': {
+          '@type': 'MedicalAudience',
+          'audienceType': 'Dog Owners',
+        },
+        'relevantSpecialty': {
+          '@type': 'MedicalSpecialty',
+          'name': 'Veterinary Medicine',
+        },
+        'mainEntityOfPage': {
+          '@type': 'WebPage',
+          '@id': fullUrl,
+        },
+      });
+    }
 
-    // Also include BlogPosting for standard ranking signals
+    // Standard ranking signals, always emitted for health articles.
     schemas.push({
       '@context': 'https://schema.org',
       '@type': 'BlogPosting',
